@@ -1,0 +1,8 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat+Alternates:ital,wght@1,700&display=swap');
+
+.electroLogo {
+    font-family: 'Montserrat Alternates', sans-serif !important;
+    letter-spacing: .04rem;
+    line-height: 1;
+
+}
