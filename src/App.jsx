@@ -1,7 +1,9 @@
+import NavBar from "./Components/Navbar/Navbar";
+
 function App() {
   return (
     <>
-      <h1>Electro App</h1>
+      <NavBar />
     </>
   );
 }
