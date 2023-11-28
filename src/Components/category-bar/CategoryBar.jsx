@@ -1,3 +1,4 @@
+import * as React from 'react';
 import AppBar from '@mui/material/AppBar';
 import Box from '@mui/material/Box';
 import Toolbar from '@mui/material/Toolbar';
@@ -9,10 +10,8 @@ import Container from '@mui/material/Container';
 import Button from '@mui/material/Button';
 import MenuItem from '@mui/material/MenuItem';
 import './CategoryBar.css'
-import * as React from 'react';
+import { Link } from "react-router-dom";
 
-
-const pages = ['Home', 'Mobile', 'Smartwatch', 'Laptop', 'Tablet'];
 
 const CategoryBar = () => {
 
@@ -59,25 +58,95 @@ const CategoryBar = () => {
                 display: { xs: 'block', md: 'none' },
               }}
             >
-              {pages.map((page) => (
-                <MenuItem key={page} onClick={handleCloseNavMenu}>
-                  <Typography textAlign="center">{page}</Typography>
-                </MenuItem>
-              ))}
+             <MenuItem  onClick={handleCloseNavMenu}>
+                <Typography textAlign="center">
+               <Link
+                to="/mobile"
+                style={{ textDecoration: "none", color: "black" }}
+               >
+                Mobile
+              </Link>
+              </Typography>
+              </MenuItem>
+              <MenuItem  onClick={handleCloseNavMenu}>
+                <Typography textAlign="center">
+               <Link
+                to="/laptop"
+                style={{ textDecoration: "none", color: "black" }}
+               >
+                Laptop
+              </Link>
+              </Typography>
+              </MenuItem>
+              <MenuItem  onClick={handleCloseNavMenu}>
+                <Typography textAlign="center">
+               <Link
+                to="/smartwatch"
+                style={{ textDecoration: "none", color: "black" }}
+               >
+                Smartwatch
+              </Link>
+              </Typography>
+              </MenuItem>
+              <MenuItem  onClick={handleCloseNavMenu}>
+                <Typography textAlign="center">
+               <Link
+                to="/tablet"
+                style={{ textDecoration: "none", color: "black" }}
+               >
+                Tablet
+              </Link>
+              </Typography>
+              </MenuItem>
             </Menu>
           </Box>
-    
           <Box className="categories-menu" sx={{ flexGrow: 1, display: { xs: 'none', md: 'flex' } }}>
-            {pages.map((page) => (
+           
               <Button 
                 className="nav-btn"
-                key={page}
-                onClick={handleCloseNavMenu}
                 sx={{ my: 2, color: 'white', display: 'block' }}
               >
-                {page}
+                 <Link
+                to="/mobile"
+                style={{ textDecoration: "none", color: "black" }}
+              >
+                Mobile
+              </Link>
               </Button>
-            ))}
+              <Button 
+                className="nav-btn"
+                sx={{ my: 2, color: 'white', display: 'block' }}
+              >
+              <Link
+                to="/smartphone"
+                style={{ textDecoration: "none", color: "black" }}
+              >
+                SmartPhone
+              </Link>
+              </Button>
+              <Button 
+                className="nav-btn"
+                sx={{ my: 2, color: 'white', display: 'block' }}
+              >
+              <Link
+                to="/laptop"
+                style={{ textDecoration: "none", color: "black" }}
+              >
+                Laptop
+              </Link>
+              </Button>
+              <Button 
+                className="nav-btn"
+                sx={{ my: 2, color: 'white', display: 'block' }}
+              >
+              <Link
+                to="/tablets"
+                style={{ textDecoration: "none", color: "black" }}
+              >
+                Tablet
+              </Link>
+              </Button>
+          
           </Box>
 
         </Toolbar>

@@ -16,3 +16,7 @@
     font-family: 'Poppins', sans-serif;
     padding: 0 30px;
 }
+
+.nav-btn a {
+    color: #fff !important;
+}
