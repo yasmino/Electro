@@ -137,9 +137,11 @@ const CategorySection = () => {
           </Grid>
           
            <Box className="discover-more">
-               <Item sx={{ flexGrow: 3}}><h3 className="discover-more-title">Discover more</h3></Item>
-               <Item className="arrow-icon"><ArrowForwardOutlinedIcon /></Item>
-             </Box>
+               <Item sx={{ flexGrow: 3}}> 
+               <Link to="/" style={{textDecoration: "none"}}><h3 className="discover-more-title">Discover more</h3></Link>
+               </Item>
+               <Item className="arrow-icon"> <Link to="/"><ArrowForwardOutlinedIcon /></Link></Item>
+           </Box>
              
      </Grid>
 
