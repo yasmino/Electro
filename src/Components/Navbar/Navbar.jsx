@@ -74,7 +74,7 @@ const Navbar = () => {
                       textDecoration: "none",
                       color: "black",
                       fontFamily: "Montserrat Alternates",
-                      fontSize: "20px",
+                      fontSize: "15px",
                       letterSpacing: ".04rem",
                       lineHeight: "1",
                     }}
@@ -91,7 +91,7 @@ const Navbar = () => {
                     style={{
                       textDecoration: "none",
                       color: "black",
-                      fontSize: "20px",
+                      fontSize: "15px",
                       fontWeight: "bold",
                       fontFamily: "Montserrat Alternates",
                       letterSpacing: ".04rem",
@@ -110,7 +110,7 @@ const Navbar = () => {
                     style={{
                       textDecoration: "none",
                       color: "black",
-                      fontSize: "20px",
+                      fontSize: "15px",
                       fontWeight: "bold",
                       fontFamily: "Montserrat Alternates",
                       letterSpacing: ".04rem",
@@ -129,7 +129,7 @@ const Navbar = () => {
                     style={{
                       textDecoration: "none",
                       color: "black",
-                      fontSize: "20px",
+                      fontSize: "15px",
                       fontWeight: "bold",
                       fontFamily: "Montserrat Alternates",
                       letterSpacing: ".04rem",
@@ -145,7 +145,7 @@ const Navbar = () => {
 
           <Grid container>
             {/* logo */}
-            <Grid item xs={6} md={4}>
+            <Grid item xs={4} md={4}>
               <Typography
                 variant="h4"
                 className="electroLogo"
@@ -163,7 +163,7 @@ const Navbar = () => {
             </Grid>
 
             {/* search */}
-            <Grid item xs={6} md={4}>
+            <Grid item xs={4} md={4}>
               <Box
                 sx={{
                   display: "flex",
@@ -184,7 +184,7 @@ const Navbar = () => {
             </Grid>
 
             {/* pages */}
-            <Grid item xs={6} md={4}>
+            <Grid item xs={4} md={4}>
               <Box
                 className="categories-menu"
                 sx={{
