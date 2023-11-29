@@ -1,8 +1,25 @@
 @import url('https://fonts.googleapis.com/css2?family=Montserrat+Alternates:ital,wght@1,700&display=swap');
 
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
 .electroLogo {
     font-family: 'Montserrat Alternates', sans-serif !important;
     letter-spacing: .04rem;
     line-height: 1;
 
+}
+
+
+@media(max-width:900px) {
+    .searchBox {
+        visibility: hidden;
+    }
+
+    .electroLogo {
+        visibility: hidden;
+    }
 }
