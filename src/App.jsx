@@ -7,6 +7,10 @@ import Mobile from "./pages/Mobile";
 import Laptop from './pages/Laptop';
 import Smartwatch from './pages/Smartwatch';
 import Tablets from './pages/Tablets';
+import Home from "./Pages/Home";
+import Login from "./Pages/Login";
+import Cart from "./Pages/Cart";
+import WhishList from "./Pages/WhishList";
 
 function App() {
   return (
@@ -19,11 +23,14 @@ function App() {
         <Route path="/laptop" element={<Laptop />} />
         <Route path="/smartphone" element={<Smartwatch />} />
         <Route path="/tablets" element={<Tablets />} />
+        <Route path="/" element={<Home />} />
+        <Route path="/login" element={<Login />} />
+        <Route path="/cart" element={<Cart />} />
+        <Route path="/whishList" element={<WhishList />} />
       </Routes>
       <CategorySection />
     </BrowserRouter>
   </React.Fragment>
-   
   );
 }
 

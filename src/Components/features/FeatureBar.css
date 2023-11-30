@@ -1,0 +1,10 @@
+@media screen and (max-width:899px) {
+    .thirdFt {
+        border-top: 2px solid white;
+
+    }
+
+    .fourthFt {
+        border-top: 2px solid white;
+    }
+}
