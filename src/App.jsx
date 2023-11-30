@@ -9,6 +9,7 @@ import Home from "./Pages/Home";
 import Login from "./Pages/Login";
 import Cart from "./Pages/Cart";
 import WishList from "./Pages/WishList";
+import './App.css'
 
 function App() {
   return (
