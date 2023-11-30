@@ -1,7 +1,5 @@
 import * as React from 'react';
 import CssBaseline from '@mui/material/CssBaseline';
-import CategorySection from './components/category-section/CategorySection';
-import CategoryBar from './components/category-bar/CategoryBar';
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import Mobile from "./pages/Mobile";
 import Laptop from './pages/Laptop';
@@ -17,7 +15,6 @@ function App() {
   <React.Fragment>
     <CssBaseline />
     <BrowserRouter>
-      <CategoryBar />
       <Routes>
         <Route path="/mobile" element={<Mobile />} />
         <Route path="/laptop" element={<Laptop />} />
@@ -28,7 +25,6 @@ function App() {
         <Route path="/cart" element={<Cart />} />
         <Route path="/whishList" element={<WhishList />} />
       </Routes>
-      <CategorySection />
     </BrowserRouter>
   </React.Fragment>
   );
