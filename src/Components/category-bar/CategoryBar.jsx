@@ -101,52 +101,26 @@ const CategoryBar = () => {
             </Menu>
           </Box>
           <Box className="categories-menu" sx={{ flexGrow: 1, display: { xs: 'none', md: 'flex' } }}>
-           
-              <Button 
-                className="nav-btn"
-                sx={{ my: 2, color: 'white', display: 'block' }}
-              >
-                 <Link
-                to="/mobile"
-                style={{ textDecoration: "none", color: "black" }}
-              >
-                Mobile
-              </Link>
+              <Button className="nav-btn">
+                 <Link to="/mobile">
+                   Mobile
+                 </Link>
               </Button>
-              <Button 
-                className="nav-btn"
-                sx={{ my: 2, color: 'white', display: 'block' }}
-              >
-              <Link
-                to="/smartphone"
-                style={{ textDecoration: "none", color: "black" }}
-              >
+              <Button className="nav-btn">
+              <Link to="/smartphone">
                 SmartPhone
               </Link>
               </Button>
-              <Button 
-                className="nav-btn"
-                sx={{ my: 2, color: 'white', display: 'block' }}
-              >
-              <Link
-                to="/laptop"
-                style={{ textDecoration: "none", color: "black" }}
-              >
+              <Button className="nav-btn">
+              <Link to="/laptop">
                 Laptop
               </Link>
               </Button>
-              <Button 
-                className="nav-btn"
-                sx={{ my: 2, color: 'white', display: 'block' }}
-              >
-              <Link
-                to="/tablets"
-                style={{ textDecoration: "none", color: "black" }}
-              >
+              <Button className="nav-btn">
+              <Link to="/tablets">
                 Tablet
               </Link>
               </Button>
-          
           </Box>
 
         </Toolbar>
