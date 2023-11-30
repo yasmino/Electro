@@ -1,26 +1,26 @@
 import * as React from "react";
-import AppBar from "@mui/material/AppBar";
-import Box from "@mui/material/Box";
-import Toolbar from "@mui/material/Toolbar";
-import IconButton from "@mui/material/IconButton";
-import Typography from "@mui/material/Typography";
-import Menu from "@mui/material/Menu";
-import MenuIcon from "@mui/icons-material/Menu";
-import Container from "@mui/material/Container";
-import Button from "@mui/material/Button";
-import MenuItem from "@mui/material/MenuItem";
-import { styled, alpha } from "@mui/material/styles";
-import SearchIcon from "@mui/icons-material/Search";
-import InputBase from "@mui/material/InputBase";
 import "./navbar.css";
 import { Link } from "react-router-dom";
+import MenuIcon from "@mui/icons-material/Menu";
+import {
+  AppBar,
+  Box,
+  Toolbar,
+  IconButton,
+  Typography,
+  Menu,
+  Container,
+  Button,
+  MenuItem,
+  TextField,
+  Grid,
+} from "@mui/material";
+import PersonIcon from "@mui/icons-material/Person";
+import FavoriteIcon from "@mui/icons-material/Favorite";
+import ShoppingCartIcon from "@mui/icons-material/ShoppingCart";
 
-const pages = ["Login", "Cart", "WhishList"];
-const settings = ["Profile", "Account", "Dashboard", "Logout"];
-
-function NavBar() {
+const Navbar = () => {
   const [anchorElNav, setAnchorElNav] = React.useState(null);
-  const [anchorElUser, setAnchorElUser] = React.useState(null);
 
   const handleOpenNavMenu = (event) => {
     setAnchorElNav(event.currentTarget);
@@ -30,57 +30,11 @@ function NavBar() {
     setAnchorElNav(null);
   };
 
-  const handleCloseUserMenu = () => {
-    setAnchorElUser(null);
-  };
-
-  const Search = styled("div")(({ theme }) => ({
-    position: "relative",
-    borderRadius: theme.shape.borderRadius,
-    backgroundColor: alpha(theme.palette.common.white, 0.15),
-    "&:hover": {
-      backgroundColor: alpha(theme.palette.common.white, 0.25),
-    },
-    marginLeft: 0,
-    width: "100%",
-    [theme.breakpoints.up("sm")]: {
-      marginLeft: theme.spacing(1),
-      width: "auto",
-    },
-  }));
-
-  const SearchIconWrapper = styled("div")(({ theme }) => ({
-    padding: theme.spacing(0, 2),
-    height: "100%",
-    position: "absolute",
-    pointerEvents: "none",
-    display: "flex",
-    alignItems: "center",
-    justifyContent: "center",
-  }));
-
-  const StyledInputBase = styled(InputBase)(({ theme }) => ({
-    color: "inherit",
-    "& .MuiInputBase-input": {
-      padding: theme.spacing(1, 1, 1, 0),
-      // vertical padding + font size from searchIcon
-      paddingLeft: `calc(1em + ${theme.spacing(4)})`,
-      transition: theme.transitions.create("width"),
-      width: "100%",
-      [theme.breakpoints.up("sm")]: {
-        width: "12ch",
-        "&:focus": {
-          width: "20ch",
-        },
-      },
-    },
-  }));
-
   return (
-    <AppBar position="static" sx={{ color: "black", bgcolor: "white" }}>
+    <AppBar position="static" sx={{ backgroundColor: "white" }}>
       <Container maxWidth="xl">
         <Toolbar disableGutters>
-          {/*start menu button */}
+          {/* icons Button */}
           <Box sx={{ flexGrow: 1, display: { xs: "flex", md: "none" } }}>
             <IconButton
               size="large"
@@ -88,7 +42,7 @@ function NavBar() {
               aria-controls="menu-appbar"
               aria-haspopup="true"
               onClick={handleOpenNavMenu}
-              color="inherit"
+              color="black"
             >
               <MenuIcon />
             </IconButton>
@@ -111,140 +65,178 @@ function NavBar() {
                 display: { xs: "block", md: "none" },
               }}
             >
-              {pages.map((page) => (
-                <MenuItem key={page} onClick={handleCloseNavMenu}>
-                  <Typography textAlign="center">{page}</Typography>
-                </MenuItem>
-              ))}
+              {/* logo */}
+              <MenuItem onClick={handleCloseNavMenu}>
+                <Typography textAlign="center">
+                  <Link
+                    to="/"
+                    style={{
+                      textDecoration: "none",
+                      color: "black",
+                      fontFamily: "Montserrat Alternates",
+                      fontSize: "15px",
+                      letterSpacing: ".04rem",
+                      lineHeight: "1",
+                    }}
+                  >
+                    Electro
+                  </Link>
+                </Typography>
+              </MenuItem>
+              {/* login */}
+              <MenuItem onClick={handleCloseNavMenu}>
+                <Typography textAlign="center">
+                  <Link
+                    to="/login"
+                    style={{
+                      textDecoration: "none",
+                      color: "black",
+                      fontSize: "15px",
+                      fontWeight: "bold",
+                      fontFamily: "Montserrat Alternates",
+                      letterSpacing: ".04rem",
+                      lineHeight: "1",
+                    }}
+                  >
+                    login
+                  </Link>
+                </Typography>
+              </MenuItem>
+              {/* cart */}
+              <MenuItem onClick={handleCloseNavMenu}>
+                <Typography textAlign="center">
+                  <Link
+                    to="/cart"
+                    style={{
+                      textDecoration: "none",
+                      color: "black",
+                      fontSize: "15px",
+                      fontWeight: "bold",
+                      fontFamily: "Montserrat Alternates",
+                      letterSpacing: ".04rem",
+                      lineHeight: "1",
+                    }}
+                  >
+                    Cart
+                  </Link>
+                </Typography>
+              </MenuItem>
+              {/* whishList */}
+              <MenuItem onClick={handleCloseNavMenu}>
+                <Typography textAlign="center">
+                  <Link
+                    to="/whishlist"
+                    style={{
+                      textDecoration: "none",
+                      color: "black",
+                      fontSize: "15px",
+                      fontWeight: "bold",
+                      fontFamily: "Montserrat Alternates",
+                      letterSpacing: ".04rem",
+                      lineHeight: "1",
+                    }}
+                  >
+                    WhishList
+                  </Link>
+                </Typography>
+              </MenuItem>
             </Menu>
           </Box>
 
-          {/* strat Logo */}
-          <Typography variant="h4" className="electroLogo">
-            Electro
-          </Typography>
-
-          {/* start search */}
-          <Search sx={{}}>
-            <SearchIconWrapper
-              sx={{
-                width: "500px",
-                border: "1px",
-                borderStyle: "solid",
-                borderColor: "red",
-              }}
-            >
-              <SearchIcon />
-            </SearchIconWrapper>
-            <StyledInputBase
-              placeholder="Search…"
-              inputProps={{ "aria-label": "search" }}
-            />
-          </Search>
-
-          <Typography
-            variant="h6"
-            noWrap
-            component="a"
-            href="#app-bar-with-responsive-menu"
-            sx={{
-              mr: 2,
-              display: { xs: "none", md: "flex" },
-              fontFamily: "monospace",
-              fontWeight: 700,
-              letterSpacing: ".3rem",
-              color: "inherit",
-              textDecoration: "none",
-            }}
-          ></Typography>
-
-          {/* menu pages */}
-          <Box
-            sx={{
-              flexGrow: 1,
-              display: {
-                xs: "none",
-                md: "flex",
-
-                justifyContent: "end",
-              },
-            }}
-          >
-            <Button
-              onClick={handleCloseNavMenu}
-              sx={{
-                my: 2,
-                display: "block",
-                textDecoration: "none",
-              }}
-            >
-              <Link
-                to="/login"
-                style={{ textDecoration: "none", color: "black" }}
+          <Grid container>
+            {/* logo */}
+            <Grid item xs={4} md={4}>
+              <Typography
+                variant="h4"
+                className="electroLogo"
+                sx={{
+                  color: "black",
+                  display: "flex",
+                  flexDirection: "column",
+                  alignItems: "space-between",
+                  justifyContent: "center",
+                  lineHeight: "2",
+                }}
               >
-                Login
-              </Link>
-            </Button>
+                Electro
+              </Typography>
+            </Grid>
 
-            <Button
-              onClick={handleCloseNavMenu}
-              sx={{
-                my: 2,
-                display: "block",
-              }}
-            >
-              <Link
-                to="/cart"
-                style={{ textDecoration: "none", color: "black" }}
+            {/* search */}
+            <Grid item xs={4} md={4}>
+              <Box
+                sx={{
+                  display: "flex",
+                  flexDirection: "column",
+                  justifyContent: "center",
+                  alignItems: "center",
+                  height: "70px",
+                }}
               >
-                Cart
-              </Link>
-            </Button>
+                <TextField
+                  id="outlined-search"
+                  label="Search "
+                  type="search"
+                  className="searchBox"
+                  sx={{ width: "350px" }}
+                />
+              </Box>
+            </Grid>
 
-            <Button
-              onClick={handleCloseNavMenu}
-              sx={{
-                my: 2,
-                display: "block",
-              }}
-            >
-              <Link
-                to="/whishList"
-                style={{ textDecoration: "none", color: "black" }}
+            {/* pages */}
+            <Grid item xs={4} md={4}>
+              <Box
+                className="categories-menu"
+                sx={{
+                  flexGrow: 1,
+                  display: { xs: "none", md: "flex" },
+                  flexDirection: "row",
+                  justifyContent: "end",
+                  alignItems: "center",
+                }}
               >
-                WhishList
-              </Link>
-            </Button>
-          </Box>
+                {/* cart */}
+                <Button
+                  className="nav-btn"
+                  onClick={handleCloseNavMenu}
+                  sx={{
+                    my: 2,
+                    display: "block",
+                  }}
+                >
+                  <Link to="/cart">
+                    <ShoppingCartIcon sx={{ color: "black" }} />
+                  </Link>
+                </Button>
 
-          {/* menu on small screen size */}
-          <Box sx={{ flexGrow: 0 }}>
-            <Menu
-              sx={{ mt: "45px" }}
-              id="menu-appbar"
-              anchorEl={anchorElUser}
-              anchorOrigin={{
-                vertical: "top",
-                horizontal: "right",
-              }}
-              keepMounted
-              transformOrigin={{
-                vertical: "top",
-                horizontal: "right",
-              }}
-              open={Boolean(anchorElUser)}
-              onClose={handleCloseUserMenu}
-            >
-              {settings.map((setting) => (
-                <MenuItem key={setting} onClick={handleCloseUserMenu}>
-                  <Typography textAlign="center">{setting}</Typography>
-                </MenuItem>
-              ))}
-            </Menu>
-          </Box>
+                {/* login */}
+                <Button
+                  className="nav-btn"
+                  onClick={handleCloseNavMenu}
+                  sx={{ my: 2, color: "white", display: "block" }}
+                >
+                  <Link to="/login">
+                    <PersonIcon sx={{ color: "black" }} />
+                  </Link>
+                </Button>
+
+                {/* whishList */}
+                <Button
+                  className="nav-btn"
+                  onClick={handleCloseNavMenu}
+                  sx={{ my: 2, color: "white", display: "block" }}
+                >
+                  <Link to="/whishList">
+                    <FavoriteIcon sx={{ color: "black" }} />
+                  </Link>
+                </Button>
+              </Box>
+            </Grid>
+          </Grid>
         </Toolbar>
       </Container>
     </AppBar>
   );
-}
-export default NavBar;
+};
+
+export default Navbar;
