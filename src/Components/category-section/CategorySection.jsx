@@ -1,6 +1,7 @@
 import Box from '@mui/material/Box';
 import Container from '@mui/material/Container';
 import PropTypes from 'prop-types';
+import { Link } from "react-router-dom";
 import './Category.css'
 import Grid from '@mui/material/Grid';
 import AddShoppingCartOutlinedIcon from '@mui/icons-material/AddShoppingCartOutlined';

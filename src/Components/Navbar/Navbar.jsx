@@ -86,7 +86,7 @@ const Navbar = () => {
               {/* login */}
               <MenuItem onClick={handleCloseNavMenu}>
                 <Typography textAlign="center">
-                  <Link
+                  {/* <Link
                     to="/login"
                     style={{
                       textDecoration: "none",
@@ -99,13 +99,13 @@ const Navbar = () => {
                     }}
                   >
                     login
-                  </Link>
+                  </Link> */}
                 </Typography>
               </MenuItem>
               {/* cart */}
               <MenuItem onClick={handleCloseNavMenu}>
                 <Typography textAlign="center">
-                  <Link
+                  {/* <Link
                     to="/cart"
                     style={{
                       textDecoration: "none",
@@ -118,14 +118,14 @@ const Navbar = () => {
                     }}
                   >
                     Cart
-                  </Link>
+                  </Link> */}
                 </Typography>
               </MenuItem>
-              {/* whishList */}
+              {/* wishList */}
               <MenuItem onClick={handleCloseNavMenu}>
                 <Typography textAlign="center">
                   <Link
-                    to="/whishlist"
+                    to="/wishlist"
                     style={{
                       textDecoration: "none",
                       color: "black",
@@ -136,7 +136,7 @@ const Navbar = () => {
                       lineHeight: "1",
                     }}
                   >
-                    WhishList
+                    WishList
                   </Link>
                 </Typography>
               </MenuItem>
@@ -220,13 +220,13 @@ const Navbar = () => {
                   </Link>
                 </Button>
 
-                {/* whishList */}
+                {/* wishList */}
                 <Button
                   className="nav-btn"
                   onClick={handleCloseNavMenu}
                   sx={{ my: 2, color: "white", display: "block" }}
                 >
-                  <Link to="/whishList">
+                  <Link to="/wishList">
                     <FavoriteIcon sx={{ color: "black" }} />
                   </Link>
                 </Button>
