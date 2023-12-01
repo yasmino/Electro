@@ -82,6 +82,7 @@ const Navbar = () => {
                 >
                   <Link to="/cart">
                     <ShoppingCartIcon sx={{ color: "black" }} />
+                    <span className="cart-count">0</span>
                   </Link>
                 </Button>
 
