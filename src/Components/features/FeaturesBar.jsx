@@ -8,7 +8,7 @@ import "./FeatureBar.css";
 const FeaturesBar = () => {
   return (
     <>
-      <Grid container sx={{ bgcolor: "#ededea" }}>
+      <Grid className="features" container sx={{ bgcolor: "#ededea" }}>
         {/* First Feature */}
         <Grid
           sm={6}
@@ -20,13 +20,7 @@ const FeaturesBar = () => {
           }}
         >
           <Container>
-            <Box
-              sx={{
-                display: "flex",
-                justifyContent: "space-evenly",
-                alignItems: "center",
-              }}
-            >
+            <Box className="features-box">
               <Box>
                 <LocalShippingIcon sx={{ fontSize: "25px" }} />
               </Box>
@@ -62,13 +56,7 @@ const FeaturesBar = () => {
           }}
         >
           <Container>
-            <Box
-              sx={{
-                display: "flex",
-                justifyContent: "space-evenly",
-                alignItems: "center",
-              }}
-            >
+          <Box className="features-box">
               <Box>
                 <MonetizationOnIcon sx={{ fontSize: "25px" }} />
               </Box>
@@ -105,13 +93,7 @@ const FeaturesBar = () => {
           className="thirdFt"
         >
           <Container>
-            <Box
-              sx={{
-                display: "flex",
-                justifyContent: "space-evenly",
-                alignItems: "center",
-              }}
-            >
+          <Box className="features-box">
               <Box>
                 <WatchLaterIcon sx={{ fontSize: "25px" }} />
               </Box>
@@ -148,13 +130,7 @@ const FeaturesBar = () => {
           className="fourthFt"
         >
           <Container>
-            <Box
-              sx={{
-                display: "flex",
-                justifyContent: "space-evenly",
-                alignItems: "center",
-              }}
-            >
+          <Box className="features-box">
               <Box>
                 <LockClockIcon sx={{ fontSize: "25px" }} />
               </Box>
