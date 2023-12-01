@@ -1,17 +1,12 @@
-import * as React from "react";
 import "./navbar.css";
 import { Link } from "react-router-dom";
-import MenuIcon from "@mui/icons-material/Menu";
 import {
   AppBar,
   Box,
   Toolbar,
-  IconButton,
   Typography,
-  Menu,
   Container,
   Button,
-  MenuItem,
   TextField,
   Grid,
 } from "@mui/material";
@@ -20,132 +15,14 @@ import FavoriteIcon from "@mui/icons-material/Favorite";
 import ShoppingCartIcon from "@mui/icons-material/ShoppingCart";
 
 const Navbar = () => {
-  const [anchorElNav, setAnchorElNav] = React.useState(null);
-
-  const handleOpenNavMenu = (event) => {
-    setAnchorElNav(event.currentTarget);
-  };
-
-  const handleCloseNavMenu = () => {
-    setAnchorElNav(null);
-  };
-
   return (
     <AppBar position="static" sx={{ backgroundColor: "white" }}>
       <Container maxWidth="xl">
         <Toolbar disableGutters>
-          {/* icons Button */}
-          <Box sx={{ flexGrow: 1, display: { xs: "flex", md: "none" } }}>
-            <IconButton
-              size="large"
-              aria-label="account of current user"
-              aria-controls="menu-appbar"
-              aria-haspopup="true"
-              onClick={handleOpenNavMenu}
-              color="black"
-            >
-              <MenuIcon />
-            </IconButton>
 
-            <Menu
-              id="menu-appbar"
-              anchorEl={anchorElNav}
-              anchorOrigin={{
-                vertical: "bottom",
-                horizontal: "left",
-              }}
-              keepMounted
-              transformOrigin={{
-                vertical: "top",
-                horizontal: "left",
-              }}
-              open={Boolean(anchorElNav)}
-              onClose={handleCloseNavMenu}
-              sx={{
-                display: { xs: "block", md: "none" },
-              }}
-            >
-              {/* logo */}
-              <MenuItem onClick={handleCloseNavMenu}>
-                <Typography textAlign="center">
-                  <Link
-                    to="/"
-                    style={{
-                      textDecoration: "none",
-                      color: "black",
-                      fontFamily: "Montserrat Alternates",
-                      fontSize: "15px",
-                      letterSpacing: ".04rem",
-                      lineHeight: "1",
-                    }}
-                  >
-                    Electro
-                  </Link>
-                </Typography>
-              </MenuItem>
-              {/* login */}
-              <MenuItem onClick={handleCloseNavMenu}>
-                <Typography textAlign="center">
-                  {/* <Link
-                    to="/login"
-                    style={{
-                      textDecoration: "none",
-                      color: "black",
-                      fontSize: "15px",
-                      fontWeight: "bold",
-                      fontFamily: "Montserrat Alternates",
-                      letterSpacing: ".04rem",
-                      lineHeight: "1",
-                    }}
-                  >
-                    login
-                  </Link> */}
-                </Typography>
-              </MenuItem>
-              {/* cart */}
-              <MenuItem onClick={handleCloseNavMenu}>
-                <Typography textAlign="center">
-                  {/* <Link
-                    to="/cart"
-                    style={{
-                      textDecoration: "none",
-                      color: "black",
-                      fontSize: "15px",
-                      fontWeight: "bold",
-                      fontFamily: "Montserrat Alternates",
-                      letterSpacing: ".04rem",
-                      lineHeight: "1",
-                    }}
-                  >
-                    Cart
-                  </Link> */}
-                </Typography>
-              </MenuItem>
-              {/* wishList */}
-              <MenuItem onClick={handleCloseNavMenu}>
-                <Typography textAlign="center">
-                  <Link
-                    to="/wishlist"
-                    style={{
-                      textDecoration: "none",
-                      color: "black",
-                      fontSize: "15px",
-                      fontWeight: "bold",
-                      fontFamily: "Montserrat Alternates",
-                      letterSpacing: ".04rem",
-                      lineHeight: "1",
-                    }}
-                  >
-                    WishList
-                  </Link>
-                </Typography>
-              </MenuItem>
-            </Menu>
-          </Box>
-
-          <Grid container>
+          <Grid container sx={{ p: 1 }} className="Nav-Bar">
             {/* logo */}
-            <Grid item xs={4} md={4}>
+            <Grid item xs={3} md={4}>
               <Typography
                 variant="h4"
                 className="electroLogo"
@@ -163,7 +40,7 @@ const Navbar = () => {
             </Grid>
 
             {/* search */}
-            <Grid item xs={4} md={4}>
+            <Grid item xs={6} md={4}>
               <Box
                 sx={{
                   display: "flex",
@@ -184,9 +61,9 @@ const Navbar = () => {
             </Grid>
 
             {/* pages */}
-            <Grid item xs={4} md={4}>
+            <Grid item xs={3} md={4}>
               <Box
-                className="categories-menu"
+                className="nav-icons"
                 sx={{
                   flexGrow: 1,
                   display: { xs: "none", md: "flex" },
@@ -198,7 +75,6 @@ const Navbar = () => {
                 {/* cart */}
                 <Button
                   className="nav-btn"
-                  onClick={handleCloseNavMenu}
                   sx={{
                     my: 2,
                     display: "block",
@@ -212,7 +88,6 @@ const Navbar = () => {
                 {/* login */}
                 <Button
                   className="nav-btn"
-                  onClick={handleCloseNavMenu}
                   sx={{ my: 2, color: "white", display: "block" }}
                 >
                   <Link to="/login">
@@ -223,7 +98,6 @@ const Navbar = () => {
                 {/* wishList */}
                 <Button
                   className="nav-btn"
-                  onClick={handleCloseNavMenu}
                   sx={{ my: 2, color: "white", display: "block" }}
                 >
                   <Link to="/wishList">
