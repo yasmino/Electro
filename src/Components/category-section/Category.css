@@ -125,3 +125,9 @@
     margin-left: auto;
     margin-top: 15px;
 }
+
+@media (max-width: 780px) {
+    .category-section {
+        margin: 4rem 7% 2rem;
+    }
+}
