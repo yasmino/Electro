@@ -36,9 +36,14 @@ div.searchBox:hover fieldset {
 div.nav-icons {
     display: flex;
     justify-content: right;
+    flex-grow: 1;
+    flex-direction: row;
+    justify-content: right;
+    align-items: center;
 }
 
 .nav-icons .nav-btn {
+    display: block;
     padding: 0;
     min-width: 2.5rem;
     margin-top: 1.4rem;
@@ -66,5 +71,11 @@ div.searchBox fieldset .css-14lo706 {
     }
     div.Nav-Bar {
         padding: 0;
+    }
+}
+
+@media (max-width: 350px) {
+    div.searchBox {
+        display: none;
     }
 }
