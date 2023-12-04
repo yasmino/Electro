@@ -1,9 +1,5 @@
 const Tablets = () => {
-  return (
-    <div>
-      Tablet Page
-    </div>
-  )
-}
+  return <div>Tablet Page</div>;
+};
 
-export default Tablets
+export default Tablets;
