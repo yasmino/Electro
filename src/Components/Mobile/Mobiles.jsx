@@ -2,7 +2,7 @@ import { useState, useEffect } from "react";
 import Box from "@mui/material/Box";
 import Container from "@mui/material/Container";
 import { Link } from "react-router-dom";
-import "../category-section/Category.css";
+import "./Mobile.css";
 import Grid from "@mui/material/Grid";
 import data from "../../../Data/db.json";
 import MobileList from "./MobileList";
