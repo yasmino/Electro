@@ -42,8 +42,15 @@
 }
 
 .product-image img {
-    width: 100%;
     padding: 40px;
+}
+
+.imgParent {
+    height: 35vh
+}
+
+.imgParent img {
+    height: 100%
 }
 
 .product-title,
@@ -95,6 +102,7 @@
 .arrow-icon svg {
     width: 0.8em;
     height: 0.8em;
+    color: black;
 }
 
 .wishlist {
