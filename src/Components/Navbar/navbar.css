@@ -11,6 +11,11 @@ h4.electroLogo {
     font-size: 1.6rem;
 }
 
+h4.electroLogo a {
+    color: #000;
+    text-decoration: none;
+}
+
 div.searchBox {
     background-color: #f5f5f5;
     font-family: "Poppins", "Helvetica", "Arial", sans-serif;

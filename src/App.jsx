@@ -9,6 +9,8 @@ import Home from "./Pages/Home";
 import Login from "./Pages/Login";
 import Cart from "./Pages/Cart";
 import WishList from "./Pages/WishList";
+import NavBar from "./Components/Navbar/Navbar";
+import CategoryBar from './Components/category-bar/CategoryBar';
 import './App.css'
 
 function App() {
@@ -16,10 +18,12 @@ function App() {
   <React.Fragment>
     <CssBaseline />
     <BrowserRouter>
+      <NavBar />
+      <CategoryBar />
       <Routes>
         <Route path="/mobile" element={<Mobile />} />
         <Route path="/laptop" element={<Laptop />} />
-        <Route path="/smartphone" element={<Smartwatch />} />
+        <Route path="/smartwatch" element={<Smartwatch />} />
         <Route path="/tablets" element={<Tablets />} />
         <Route path="/" element={<Home />} />
         <Route path="/login" element={<Login />} />

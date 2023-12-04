@@ -35,7 +35,10 @@ const Navbar = () => {
                   lineHeight: "2",
                 }}
               >
-                Electro
+                 <Link to="/">
+                 Electro
+                 </Link>
+                
               </Typography>
             </Grid>
 

@@ -58,6 +58,16 @@ const CategoryBar = () => {
                 display: { xs: 'block', md: 'none' },
               }}
             >
+                <MenuItem  onClick={handleCloseNavMenu}>
+                <Typography textAlign="center">
+               <Link
+                to="/"
+                style={{ textDecoration: "none", color: "black" }}
+               >
+                Home
+              </Link>
+              </Typography>
+              </MenuItem>
              <MenuItem  onClick={handleCloseNavMenu}>
                 <Typography textAlign="center">
                <Link
@@ -91,7 +101,7 @@ const CategoryBar = () => {
               <MenuItem  onClick={handleCloseNavMenu}>
                 <Typography textAlign="center">
                <Link
-                to="/tablet"
+                to="/tablets"
                 style={{ textDecoration: "none", color: "black" }}
                >
                 Tablet
@@ -101,14 +111,19 @@ const CategoryBar = () => {
             </Menu>
           </Box>
           <Box className="categories-menu" sx={{ flexGrow: 1, display: { xs: 'none', md: 'flex' } }}>
+             <Button className="nav-btn">
+                 <Link to="/">
+                   Home
+                 </Link>
+              </Button>
               <Button className="nav-btn">
                  <Link to="/mobile">
                    Mobile
                  </Link>
               </Button>
               <Button className="nav-btn">
-              <Link to="/smartphone">
-                SmartPhone
+              <Link to="/smartwatch">
+                SmartWatch
               </Link>
               </Button>
               <Button className="nav-btn">
