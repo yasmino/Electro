@@ -41,14 +41,15 @@ div.product {
 }
 
 .product-image img {
-    width: 100%;
-    padding: 28px;
-    height: 14em;
-    object-fit: contain;
+    padding: 40px;
 }
 
-div.product-image {
-    border: 1px solid #dedede;
+.imgParent {
+    height: 35vh
+}
+
+.imgParent img {
+    height: 100%
 }
 
 .product-title,
@@ -138,6 +139,7 @@ div.product-image {
         margin: 4rem 7% 2rem;
     }
 }
+
 @media (max-width: 490px) {
     .category-section {
         font-size: 1rem;
