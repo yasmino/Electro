@@ -1,3 +1,4 @@
+import { useState, useEffect } from "react";
 import Box from "@mui/material/Box";
 import Container from "@mui/material/Container";
 import PropTypes from "prop-types";
@@ -8,8 +9,24 @@ import AddShoppingCartOutlinedIcon from "@mui/icons-material/AddShoppingCartOutl
 import FavoriteBorderOutlinedIcon from "@mui/icons-material/FavoriteBorderOutlined";
 import ArrowForwardOutlinedIcon from "@mui/icons-material/ArrowForwardOutlined";
 import Rating from "@mui/material/Rating";
+import data from "../../../Data/db.json";
 
 const Mobiles = () => {
+  const [mobileData, setMobileDate] = useState([]);
+
+  const Electronics = data.Electronics;
+
+  const fetchMobileData = () => {
+    const mobiles = Electronics.filter(
+      (electronic) => electronic.type === "Mobile"
+    );
+    setMobileDate(mobiles);
+  };
+
+  useEffect(() => {
+    fetchMobileData();
+  }, []);
+
   function Item(props) {
     const { sx, ...other } = props;
     return (
@@ -58,102 +75,39 @@ const Mobiles = () => {
             <div className="divide-line"></div>
           </div>
         </div>
-        <Grid container spacing={1} className="product-section">
-          <Grid item xs={6} md={3}>
-            <Item className="product-image">
-              <div className="wishlist">
-                <FavoriteBorderOutlinedIcon />
-              </div>
-              <img src="https://m.media-amazon.com/images/I/81hhxPO7IIL._AC_SL1500_.jpg" />
-            </Item>
-            <Item className="product">
-              <Box className="product-details">
-                <Item sx={{ flexGrow: 1 }}>
-                  <h3 className="product-title">Product name</h3>
+        <Grid container spacing={2} className="product-section">
+          {mobileData.slice(0, 4).map((data, index) => {
+            const { name, image, price } = data;
+            return (
+              <Grid key={index} item xs={6} md={3} spacing={3}>
+                <Item className="product-image">
+                  <div className="wishlist">
+                    <FavoriteBorderOutlinedIcon />
+                  </div>
+                  <img src={image} />
                 </Item>
-                <Item className="cart-icon">
-                  <AddShoppingCartOutlinedIcon />
-                </Item>
-              </Box>
+                <div className="ratings-container">
+                  <Rating
+                    name="half-rating"
+                    defaultValue={2.5}
+                    precision={0.5}
+                  />
+                </div>
+                <Item className="product">
+                  <Box className="product-details">
+                    <Item sx={{ flexGrow: 1 }}>
+                      <h3 className="product-title">{name}</h3>
+                    </Item>
+                    <Item className="cart-icon">
+                      <AddShoppingCartOutlinedIcon />
+                    </Item>
+                  </Box>
 
-              <div className="ratings-container">
-                <Rating name="half-rating" defaultValue={2.5} precision={0.5} />
-              </div>
-              <div className="product-price">€450</div>
-            </Item>
-          </Grid>
-
-          <Grid item xs={6} md={3}>
-            <Item className="product-image">
-              <div className="wishlist">
-                <FavoriteBorderOutlinedIcon />
-              </div>
-              <img src="https://m.media-amazon.com/images/I/81hhxPO7IIL._AC_SL1500_.jpg" />
-            </Item>
-            <Item className="product">
-              <Box className="product-details">
-                <Item sx={{ flexGrow: 1 }}>
-                  <h3 className="product-title">Product name</h3>
+                  <div className="product-price">${price}</div>
                 </Item>
-                <Item className="cart-icon">
-                  <AddShoppingCartOutlinedIcon />
-                </Item>
-              </Box>
-
-              <div className="ratings-container">
-                <Rating name="half-rating" defaultValue={2.5} precision={0.5} />
-              </div>
-              <div className="product-price">€450</div>
-            </Item>
-          </Grid>
-
-          <Grid item xs={6} md={3}>
-            <Item className="product-image">
-              <div className="wishlist">
-                <FavoriteBorderOutlinedIcon />
-              </div>
-              <img src="https://m.media-amazon.com/images/I/81hhxPO7IIL._AC_SL1500_.jpg" />
-            </Item>
-            <Item className="product">
-              <Box className="product-details">
-                <Item sx={{ flexGrow: 1 }}>
-                  <h3 className="product-title">Product name</h3>
-                </Item>
-                <Item className="cart-icon">
-                  <AddShoppingCartOutlinedIcon />
-                </Item>
-              </Box>
-
-              <div className="ratings-container">
-                <Rating name="half-rating" defaultValue={2.5} precision={0.5} />
-              </div>
-              <div className="product-price">€450</div>
-            </Item>
-          </Grid>
-
-          <Grid item xs={6} md={3}>
-            <Item className="product-image">
-              <div className="wishlist">
-                <FavoriteBorderOutlinedIcon />
-              </div>
-              <img src="https://m.media-amazon.com/images/I/81hhxPO7IIL._AC_SL1500_.jpg" />
-            </Item>
-            <Item className="product">
-              <Box className="product-details">
-                <Item sx={{ flexGrow: 1 }}>
-                  <h3 className="product-title">Product name</h3>
-                </Item>
-                <Item className="cart-icon">
-                  <AddShoppingCartOutlinedIcon />
-                </Item>
-              </Box>
-
-              <div className="ratings-container">
-                <Rating name="half-rating" defaultValue={2.5} precision={0.5} />
-              </div>
-              <div className="product-price">€450</div>
-            </Item>
-          </Grid>
+              </Grid>
+            );
+          })}
 
           <Box className="discover-more">
             <Item sx={{ flexGrow: 3 }}>
@@ -162,7 +116,6 @@ const Mobiles = () => {
               </Link>
             </Item>
             <Item className="arrow-icon">
-              {" "}
               <Link to="/">
                 <ArrowForwardOutlinedIcon />
               </Link>
