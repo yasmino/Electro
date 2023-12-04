@@ -5,6 +5,7 @@ import { Link } from "react-router-dom";
 import Box from "@mui/material/Box";
 import Grid from "@mui/material/Grid";
 import PropTypes from "prop-types";
+import "./Mobile.css";
 
 const MobileList = ({ name, image, price }) => {
   function Item(props) {
@@ -15,10 +16,10 @@ const MobileList = ({ name, image, price }) => {
           p: 1,
           m: 1,
           bgcolor: (theme) =>
-            theme.palette.mode === "dark" ? "#101010" : "grey.100",
+            theme.palette.mode === "dark" ? "#101010" : "white.100",
           color: (theme) =>
             theme.palette.mode === "dark" ? "grey.300" : "grey.800",
-          border: "1px solid",
+
           borderColor: (theme) =>
             theme.palette.mode === "dark" ? "grey.800" : "grey.300",
           borderRadius: 2,
@@ -45,31 +46,33 @@ const MobileList = ({ name, image, price }) => {
 
   return (
     <Grid item xs={6} md={3} spacing={3}>
-      <Item className="product-image">
-        <div className="wishlist">
-          <FavoriteBorderOutlinedIcon />
+      <Box sx={{ border: "1px solid lightgray" }}>
+        <Item className="product-image">
+          <div className="wishlist">
+            <FavoriteBorderOutlinedIcon />
+          </div>
+          <Box className="imgParent">
+            <img src={image} />
+          </Box>
+        </Item>
+        <div className="ratings-container">
+          <Rating name="half-rating" defaultValue={2.5} precision={0.5} />
         </div>
-        <Box className="imgParent">
-          <img src={image} />
-        </Box>
-      </Item>
-      <div className="ratings-container">
-        <Rating name="half-rating" defaultValue={2.5} precision={0.5} />
-      </div>
-      <Item className="product">
-        <Box className="product-details">
-          <Item sx={{ flexGrow: 1 }}>
-            <h3 className="product-title">{name}</h3>
-          </Item>
-          <Item className="cart-icon">
-            <Link to="/cart">
-              <AddShoppingCartOutlinedIcon />
-            </Link>
-          </Item>
-        </Box>
+        <Item className="product">
+          <Box className="product-details">
+            <Item sx={{ flexGrow: 1 }}>
+              <h3 className="product-title">{name}</h3>
+            </Item>
+            <Item className="cart-icon">
+              <Link to="/cart">
+                <AddShoppingCartOutlinedIcon />
+              </Link>
+            </Item>
+          </Box>
 
-        <div className="product-price">${price}</div>
-      </Item>
+          <div className="product-price">${price}</div>
+        </Item>
+      </Box>
     </Grid>
   );
 };
