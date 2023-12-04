@@ -1,4 +1,5 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400&display=swap');
+
 .category-section {
     text-transform: uppercase;
     font-size: 1.5rem;
@@ -41,18 +42,21 @@
 }
 
 .product-image img {
-    width: 100%;
-    padding: 25px;
-    height: 18em;
-    object-fit: contain;
+    padding: 40px;
 }
 
 .imgParent {
-    height: 35vh
+    height: 28vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 .imgParent img {
-    height: 100%
+    height: 100%;
+    /* margin-left: auto;
+    margin-right: auto;
+    width: 50%; */
 }
 
 .product-title,
@@ -86,8 +90,13 @@
     background-color: transparent;
 }
 
+.ratings-container {
+    text-align: center;
+}
+
 .ratings-container span {
     font-size: 0.9rem;
+
 }
 
 .product-price {
@@ -135,10 +144,4 @@
 .discover-more {
     margin-left: auto;
     margin-top: 15px;
-}
-
-@media (max-width: 780px) {
-    .category-section {
-        margin: 4rem 7% 2rem;
-    }
 }

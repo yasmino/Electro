@@ -7,7 +7,7 @@ import data from "../../../Data/db.json";
 import ArrowForwardOutlinedIcon from "@mui/icons-material/ArrowForwardOutlined";
 import PropTypes from "prop-types";
 import LaptopList from "./LaptopList";
-import "../category-section/Category.css";
+import "./Laptop.css";
 
 const Laptop = () => {
   function Item(props) {
@@ -83,7 +83,7 @@ const Laptop = () => {
 
           <Box className="discover-more">
             <Item sx={{ flexGrow: 3 }}>
-              <Link to="/mobile" style={{ textDecoration: "none" }}>
+              <Link to="/laptop" style={{ textDecoration: "none" }}>
                 <h3 className="discover-more-title">Discover more</h3>
               </Link>
             </Item>
