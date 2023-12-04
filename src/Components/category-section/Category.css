@@ -42,7 +42,9 @@
 
 .product-image img {
     width: 100%;
-    padding: 40px;
+    padding: 25px;
+    height: 18em;
+    object-fit: contain;
 }
 
 .product-title,
