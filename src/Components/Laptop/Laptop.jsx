@@ -7,7 +7,7 @@ import data from "../../../Data/db.json";
 import ArrowForwardOutlinedIcon from "@mui/icons-material/ArrowForwardOutlined";
 import PropTypes from "prop-types";
 import LaptopList from "./LaptopList";
-import "./Laptop.css";
+import "../category-section/Category.css"
 
 const Laptop = () => {
   function Item(props) {
@@ -63,7 +63,6 @@ const Laptop = () => {
 
   return (
     <>
-      <Container maxWidth="lg" sx={{ height: "100vh" }}>
         <div className="category-section">
           <div className="category-title">
             <div className="divide-line"></div>
@@ -92,7 +91,6 @@ const Laptop = () => {
             </Item>
           </Box>
         </Grid>
-      </Container>
     </>
   );
 };

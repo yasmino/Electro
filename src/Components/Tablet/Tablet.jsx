@@ -1,4 +1,4 @@
-import "./Tablet.css";
+import "../category-section/Category.css";
 import TabletList from "./TabletList";
 import { useState, useEffect } from "react";
 import Box from "@mui/material/Box";
@@ -61,7 +61,7 @@ const Tablet = () => {
   }, []);
 
   return (
-    <Container maxWidth="lg" sx={{ height: "100vh" }}>
+   <>
       <div className="category-section">
         <div className="category-title">
           <div className="divide-line"></div>
@@ -89,7 +89,7 @@ const Tablet = () => {
           </Item>
         </Box>
       </Grid>
-    </Container>
+</>
   );
 };
 

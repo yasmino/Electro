@@ -35,24 +35,19 @@
     margin-bottom: 4.7rem;
 }
 
-.product-image.css-cfvv5u {
-    border: 0;
-    border-radius: 0;
+div.product {
+    margin: 0;
 }
 
 .product-image img {
     width: 100%;
-    padding: 25px;
-    height: 18em;
+    padding: 28px;
+    height: 14em;
     object-fit: contain;
 }
 
-.imgParent {
-    height: 35vh
-}
-
-.imgParent img {
-    height: 100%
+div.product-image {
+    border: 1px solid #dedede;
 }
 
 .product-title,

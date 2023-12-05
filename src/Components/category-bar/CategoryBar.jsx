@@ -25,7 +25,7 @@ const CategoryBar = () => {
 
   return (
     <>
-      <AppBar position="static">
+      <AppBar position="static" sx={{backgroundColor: "black"}}>
         <Container maxWidth="xl" className="categoriesnav">
           <Toolbar disableGutters>
             <Box sx={{ flexGrow: 1, display: { xs: "flex", md: "none" } }}>

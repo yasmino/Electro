@@ -1,4 +1,4 @@
-import "./SmartWatches.css";
+import "../category-section/Category.css";
 import { useState, useEffect } from "react";
 import Box from "@mui/material/Box";
 import Container from "@mui/material/Container";
@@ -62,7 +62,7 @@ const SmartWatches = () => {
   }, []);
 
   return (
-    <Container maxWidth="lg" sx={{ height: "100vh" }}>
+    <>
       <div className="category-section">
         <div className="category-title">
           <div className="divide-line"></div>
@@ -95,7 +95,7 @@ const SmartWatches = () => {
           </Item>
         </Box>
       </Grid>
-    </Container>
+    </>
   );
 };
 
