@@ -1,8 +1,14 @@
 @import url('https://fonts.googleapis.com/css2?family=Montserrat+Alternates:ital,wght@1,700&display=swap');
+
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+}
+
+.logoLink {
+    color: black !important;
+    text-decoration: none;
 }
 
 h4.electroLogo {
@@ -72,18 +78,22 @@ div.searchBox fieldset .css-14lo706 {
     div.searchBox {
         width: 10rem;
     }
+
     h4.electroLogo {
         margin: 17px 0;
         font-size: 1.1rem;
     }
+
     .nav-icons .nav-btn {
         min-width: 2em;
         margin-top: 1.4rem;
     }
+
     .nav-icons svg {
         width: 0.8em;
         height: 0.8em;
     }
+
     div.Nav-Bar {
         padding: 0;
     }
