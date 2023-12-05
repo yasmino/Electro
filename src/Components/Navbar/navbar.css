@@ -1,5 +1,4 @@
 @import url('https://fonts.googleapis.com/css2?family=Montserrat+Alternates:ital,wght@1,700&display=swap');
-
 * {
     margin: 0;
     padding: 0;
@@ -12,9 +11,15 @@
 }
 
 h4.electroLogo {
+    display: flex;
+    letter-spacing: 0.00735em;
+    justify-content: center;
+    line-height: 2;
+    flex-direction: column;
     font-family: 'Montserrat Alternates', sans-serif !important;
     margin: 9px 0;
     font-size: 1.6rem;
+    color: #000;
 }
 
 div.searchBox {
@@ -78,22 +83,18 @@ div.searchBox fieldset .css-14lo706 {
     div.searchBox {
         width: 10rem;
     }
-
     h4.electroLogo {
         margin: 17px 0;
         font-size: 1.1rem;
     }
-
     .nav-icons .nav-btn {
         min-width: 2em;
         margin-top: 1.4rem;
     }
-
     .nav-icons svg {
         width: 0.8em;
         height: 0.8em;
     }
-
     div.Nav-Bar {
         padding: 0;
     }

@@ -1,4 +1,3 @@
-import "./SmartWatches.css";
 import AddShoppingCartOutlinedIcon from "@mui/icons-material/AddShoppingCartOutlined";
 import FavoriteBorderOutlinedIcon from "@mui/icons-material/FavoriteBorderOutlined";
 import Rating from "@mui/material/Rating";
@@ -46,18 +45,12 @@ const SmartWatchesList = ({ name, image, price }) => {
 
   return (
     <Grid item xs={6} md={3} spacing={3}>
-      <Box sx={{ border: "1px solid lightgray" }}>
         <Item className="product-image">
           <div className="wishlist">
             <FavoriteBorderOutlinedIcon />
           </div>
-          <Box className="imgParent">
             <img src={image} />
-          </Box>
         </Item>
-        <div className="ratings-container">
-          <Rating name="half-rating" defaultValue={2.5} precision={0.5} />
-        </div>
         <Item className="product">
           <Box className="product-details">
             <Item sx={{ flexGrow: 1 }}>
@@ -69,10 +62,11 @@ const SmartWatchesList = ({ name, image, price }) => {
               </Link>
             </Item>
           </Box>
-
+          <div className="ratings-container"> 
+          <Rating name="half-rating" defaultValue={2.5} precision={0.5} />
+          </div>
           <div className="product-price">${price}</div>
         </Item>
-      </Box>
     </Grid>
   );
 };
