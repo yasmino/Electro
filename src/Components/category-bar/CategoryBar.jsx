@@ -26,7 +26,7 @@ const CategoryBar = () => {
     };
   
   return (
-   <AppBar position="static">
+   <AppBar position="static" className='AppBar'>
       <Container maxWidth="xl" className="categoriesnav">
         <Toolbar disableGutters >
           <Box sx={{ flexGrow: 1, display: { xs: 'flex', md: 'none' } }}>

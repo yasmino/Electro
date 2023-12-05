@@ -3,8 +3,12 @@
     justify-content: center;
 }
 
-.categoriesnav {
+.categoriesnav,
+header.AppBar {
     background-color: #000;
+}
+
+header.AppBar {
     box-shadow: 0 0px 6px 3px rgb(0 0 0 / 53%);
 }
 
