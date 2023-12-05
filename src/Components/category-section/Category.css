@@ -41,15 +41,16 @@ div.product {
 }
 
 .product-image img {
-    padding: 40px;
+    width: 100%;
+    padding: 28px;
+    height: 14em;
+    object-fit: contain;
 }
 
-.imgParent {
-    height: 35vh
-}
 
-.imgParent img {
-    height: 100%
+
+div.product-image {
+    border: 1px solid #dedede;
 }
 
 .product-title,

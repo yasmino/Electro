@@ -1,13 +1,12 @@
 import { useState, useEffect } from "react";
 import Box from "@mui/material/Box";
-import Container from "@mui/material/Container";
 import { Link } from "react-router-dom";
 import Grid from "@mui/material/Grid";
 import data from "../../../Data/db.json";
 import ArrowForwardOutlinedIcon from "@mui/icons-material/ArrowForwardOutlined";
 import PropTypes from "prop-types";
 import LaptopList from "./LaptopList";
-import "../category-section/Category.css"
+import "../category-section/Category.css";
 
 const Laptop = () => {
   function Item(props) {
@@ -63,34 +62,34 @@ const Laptop = () => {
 
   return (
     <>
-        <div className="category-section">
-          <div className="category-title">
-            <div className="divide-line"></div>
-            <span>
-              <strong>Laptop</strong> Products
-            </span>
-            <div className="divide-line"></div>
-          </div>
+      <div className="category-section">
+        <div className="category-title">
+          <div className="divide-line"></div>
+          <span>
+            <strong>Laptop</strong> Products
+          </span>
+          <div className="divide-line"></div>
         </div>
-        <Grid container spacing={2} className="product-section">
-          {laptopData.slice(0, 4).map((data, index) => {
-            const { name, image, price } = data;
-            return (
-              <LaptopList key={index} name={name} image={image} price={price} />
-            );
-          })}
+      </div>
+      <Grid container spacing={2} className="product-section">
+        {laptopData.slice(0, 4).map((data, index) => {
+          const { name, image, price } = data;
+          return (
+            <LaptopList key={index} name={name} image={image} price={price} />
+          );
+        })}
 
-          <Box className="discover-more">
-            <Item sx={{ flexGrow: 3 }}>
-              <Link to="/laptop" style={{ textDecoration: "none" }}>
-                <h3 className="discover-more-title">Discover more</h3>
-              </Link>
-            </Item>
-            <Item className="arrow-icon">
-              <ArrowForwardOutlinedIcon />
-            </Item>
-          </Box>
-        </Grid>
+        <Box className="discover-more">
+          <Item sx={{ flexGrow: 3 }}>
+            <Link to="/laptop" style={{ textDecoration: "none" }}>
+              <h3 className="discover-more-title">Discover more</h3>
+            </Link>
+          </Item>
+          <Item className="arrow-icon">
+            <ArrowForwardOutlinedIcon />
+          </Item>
+        </Box>
+      </Grid>
     </>
   );
 };
