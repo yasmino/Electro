@@ -10,9 +10,10 @@ import {
   TextField,
   Grid,
 } from "@mui/material";
-import PersonIcon from "@mui/icons-material/Person";
+
 import FavoriteIcon from "@mui/icons-material/Favorite";
 import ShoppingCartIcon from "@mui/icons-material/ShoppingCart";
+import RegistrationForm from "../registration/registrationform";
 
 const Navbar = () => {
   return (
@@ -62,44 +63,18 @@ const Navbar = () => {
 
             {/* pages */}
             <Grid item xs={3} md={4}>
-              <Box
-                className="nav-icons"
-                sx={{
-                  flexGrow: 1,
-                  display: { xs: "none", md: "flex" },
-                  flexDirection: "row",
-                  justifyContent: "end",
-                  alignItems: "center",
-                }}
-              >
-                {/* cart */}
-                <Button
-                  className="nav-btn"
-                  sx={{
-                    my: 2,
-                    display: "block",
-                  }}
-                >
+              <Box className="nav-icons" sx={{ display: { xs: "none", md: "flex" }}}>
+                <Button className="nav-btn carticon">
                   <Link to="/cart">
                     <ShoppingCartIcon sx={{ color: "black" }} />
                   </Link>
                 </Button>
 
-                {/* login */}
-                <Button
-                  className="nav-btn"
-                  sx={{ my: 2, color: "white", display: "block" }}
-                >
-                  <Link to="/login">
-                    <PersonIcon sx={{ color: "black" }} />
-                  </Link>
+                <Button className="nav-btn registericon">
+                  <RegistrationForm />
                 </Button>
 
-                {/* wishList */}
-                <Button
-                  className="nav-btn"
-                  sx={{ my: 2, color: "white", display: "block" }}
-                >
+                <Button className="nav-btn wishlisticon">
                   <Link to="/wishList">
                     <FavoriteIcon sx={{ color: "black" }} />
                   </Link>
