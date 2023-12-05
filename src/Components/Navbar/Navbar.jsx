@@ -76,16 +76,11 @@ const Navbar = () => {
                   }}
                 >
                   {/* cart */}
-                  <Button
-                    className="nav-btn"
-                    sx={{
-                      my: 2,
-                      display: "block",
-                    }}
-                  >
+                  <Button className="nav-btn">
                     <Link to="/cart">
                       <ShoppingCartIcon sx={{ color: "black" }} />
                     </Link>
+                    <span className="cart-count">0</span>
                   </Button>
 
                   {/* login */}
