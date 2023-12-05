@@ -1,4 +1,3 @@
-
 const Laptop = () => {
   return (
     <div>
