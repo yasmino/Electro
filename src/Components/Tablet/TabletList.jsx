@@ -5,6 +5,7 @@ import { Link } from "react-router-dom";
 import Box from "@mui/material/Box";
 import Grid from "@mui/material/Grid";
 import PropTypes from "prop-types";
+import "../category-section/Category.css";
 
 const TabletList = ({ name, image, price }) => {
   function Item(props) {
@@ -44,28 +45,28 @@ const TabletList = ({ name, image, price }) => {
   };
   return (
     <Grid item xs={6} md={3} spacing={3}>
-        <Item className="product-image">
-          <div className="wishlist">
-            <FavoriteBorderOutlinedIcon />
-          </div>
-          <img src={image} />
-        </Item>
-        <Item className="product">
-          <Box className="product-details">
-            <Item sx={{ flexGrow: 1 }}>
-              <h3 className="product-title">{name}</h3>
-            </Item>
-            <Item className="cart-icon">
-              <Link to="/cart">
-                <AddShoppingCartOutlinedIcon />
-              </Link>
-            </Item>
-          </Box>
-          <div className="ratings-container"> 
+      <Item className="product-image">
+        <div className="wishlist">
+          <FavoriteBorderOutlinedIcon />
+        </div>
+        <img src={image} />
+      </Item>
+      <Item className="product">
+        <Box className="product-details">
+          <Item sx={{ flexGrow: 1 }}>
+            <h3 className="product-title">{name}</h3>
+          </Item>
+          <Item className="cart-icon">
+            <Link to="/cart">
+              <AddShoppingCartOutlinedIcon />
+            </Link>
+          </Item>
+        </Box>
+        <div className="ratings-container">
           <Rating name="half-rating" defaultValue={2.5} precision={0.5} />
-          </div>
-          <div className="product-price">${price}</div>
-        </Item>
+        </div>
+        <div className="product-price">${price}</div>
+      </Item>
     </Grid>
   );
 };

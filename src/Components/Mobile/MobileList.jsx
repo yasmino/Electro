@@ -5,6 +5,7 @@ import { Link } from "react-router-dom";
 import Box from "@mui/material/Box";
 import Grid from "@mui/material/Grid";
 import PropTypes from "prop-types";
+import "../category-section/Category.css";
 
 const MobileList = ({ name, image, price }) => {
   function Item(props) {
@@ -49,13 +50,8 @@ const MobileList = ({ name, image, price }) => {
         <div className="wishlist">
           <FavoriteBorderOutlinedIcon />
         </div>
-        <Box className="imgParent">
-          <img src={image} />
-        </Box>
+        <img src={image} />
       </Item>
-      <div className="ratings-container">
-        <Rating name="half-rating" defaultValue={2.5} precision={0.5} />
-      </div>
       <Item className="product">
         <Box className="product-details">
           <Item sx={{ flexGrow: 1 }}>
@@ -67,7 +63,9 @@ const MobileList = ({ name, image, price }) => {
             </Link>
           </Item>
         </Box>
-
+        <div className="ratings-container">
+          <Rating name="half-rating" defaultValue={2.5} precision={0.5} />
+        </div>
         <div className="product-price">${price}</div>
       </Item>
     </Grid>

@@ -1,7 +1,6 @@
 import "../category-section/Category.css";
 import { useState, useEffect } from "react";
 import Box from "@mui/material/Box";
-import Container from "@mui/material/Container";
 import { Link } from "react-router-dom";
 import "./Mobile.css";
 import Grid from "@mui/material/Grid";
@@ -64,36 +63,34 @@ const Mobiles = () => {
 
   return (
     <>
-      <Container maxWidth="lg" sx={{ height: "100vh" }}>
-        <div className="category-section">
-          <div className="category-title">
-            <div className="divide-line"></div>
-            <span>
-              <strong>Mobile</strong> Products
-            </span>
-            <div className="divide-line"></div>
-          </div>
+      <div className="category-section">
+        <div className="category-title">
+          <div className="divide-line"></div>
+          <span>
+            <strong>Mobile</strong> Products
+          </span>
+          <div className="divide-line"></div>
         </div>
-        <Grid container spacing={2} className="product-section">
-          {mobileData.slice(0, 4).map((data, index) => {
-            const { name, image, price } = data;
-            return (
-              <MobileList key={index} name={name} image={image} price={price} />
-            );
-          })}
+      </div>
+      <Grid container spacing={2} className="product-section">
+        {mobileData.slice(0, 4).map((data, index) => {
+          const { name, image, price } = data;
+          return (
+            <MobileList key={index} name={name} image={image} price={price} />
+          );
+        })}
 
-          <Box className="discover-more">
-            <Item sx={{ flexGrow: 3 }}>
-              <Link to="/mobile" style={{ textDecoration: "none" }}>
-                <h3 className="discover-more-title">Discover more</h3>
-              </Link>
-            </Item>
-            <Item className="arrow-icon">
-              <ArrowForwardOutlinedIcon />
-            </Item>
-          </Box>
-        </Grid>
-      </Container>
+        <Box className="discover-more">
+          <Item sx={{ flexGrow: 3 }}>
+            <Link to="/mobile" style={{ textDecoration: "none" }}>
+              <h3 className="discover-more-title">Discover more</h3>
+            </Link>
+          </Item>
+          <Item className="arrow-icon">
+            <ArrowForwardOutlinedIcon />
+          </Item>
+        </Box>
+      </Grid>
     </>
   );
 };

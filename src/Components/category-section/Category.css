@@ -47,8 +47,6 @@ div.product {
     object-fit: contain;
 }
 
-
-
 div.product-image {
     border: 1px solid #dedede;
 }
@@ -84,8 +82,14 @@ div.product-image {
     background-color: transparent;
 }
 
+
+.ratings-container {
+    text-align: left !important;
+}
+
 .ratings-container span {
     font-size: 0.9rem;
+
 }
 
 .product-price {
