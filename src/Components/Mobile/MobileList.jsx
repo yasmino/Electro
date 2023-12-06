@@ -7,7 +7,7 @@ import Grid from "@mui/material/Grid";
 import PropTypes from "prop-types";
 import "../category-section/Category.css";
 
-const TabletList = ({ name, image, price }) => {
+const MobileList = ({ name, image, price }) => {
   function Item(props) {
     const { sx, ...other } = props;
     return (
@@ -43,6 +43,7 @@ const TabletList = ({ name, image, price }) => {
       PropTypes.object,
     ]),
   };
+
   return (
     <Grid item xs={6} md={3} spacing={3}>
       <Item className="product-image">
@@ -71,4 +72,4 @@ const TabletList = ({ name, image, price }) => {
   );
 };
 
-export default TabletList;
+export default MobileList;

@@ -2,7 +2,6 @@ import "../category-section/Category.css";
 import TabletList from "./TabletList";
 import { useState, useEffect } from "react";
 import Box from "@mui/material/Box";
-import Container from "@mui/material/Container";
 import { Link } from "react-router-dom";
 import Grid from "@mui/material/Grid";
 import data from "../../../Data/db.json";
@@ -61,7 +60,7 @@ const Tablet = () => {
   }, []);
 
   return (
-   <>
+    <>
       <div className="category-section">
         <div className="category-title">
           <div className="divide-line"></div>
@@ -89,7 +88,7 @@ const Tablet = () => {
           </Item>
         </Box>
       </Grid>
-</>
+    </>
   );
 };
 

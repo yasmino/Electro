@@ -1,14 +1,15 @@
+import "../category-section/Category.css";
 import { useState, useEffect } from "react";
 import Box from "@mui/material/Box";
 import { Link } from "react-router-dom";
+import "./Mobile.css";
 import Grid from "@mui/material/Grid";
 import data from "../../../Data/db.json";
+import MobileList from "./MobileList";
 import ArrowForwardOutlinedIcon from "@mui/icons-material/ArrowForwardOutlined";
 import PropTypes from "prop-types";
-import LaptopList from "./LaptopList";
-import "../category-section/Category.css";
 
-const Laptop = () => {
+const Mobiles = () => {
   function Item(props) {
     const { sx, ...other } = props;
     return (
@@ -45,19 +46,19 @@ const Laptop = () => {
     ]),
   };
 
-  const [laptopData, setLaptopDate] = useState([]);
+  const [mobileData, setMobileDate] = useState([]);
 
   const Electronics = data.Electronics;
 
-  const fetchLaptopData = () => {
-    const Laptop = Electronics.filter(
-      (electronic) => electronic.type === "Laptop"
+  const fetchMobileData = () => {
+    const mobiles = Electronics.filter(
+      (electronic) => electronic.type === "Mobile"
     );
-    setLaptopDate(Laptop);
+    setMobileDate(mobiles);
   };
 
   useEffect(() => {
-    fetchLaptopData();
+    fetchMobileData();
   }, []);
 
   return (
@@ -66,22 +67,22 @@ const Laptop = () => {
         <div className="category-title">
           <div className="divide-line"></div>
           <span>
-            <strong>Laptop</strong> Products
+            <strong>Mobile</strong> Products
           </span>
           <div className="divide-line"></div>
         </div>
       </div>
       <Grid container spacing={2} className="product-section">
-        {laptopData.slice(0, 4).map((data, index) => {
+        {mobileData.slice(0, 4).map((data, index) => {
           const { name, image, price } = data;
           return (
-            <LaptopList key={index} name={name} image={image} price={price} />
+            <MobileList key={index} name={name} image={image} price={price} />
           );
         })}
 
         <Box className="discover-more">
           <Item sx={{ flexGrow: 3 }}>
-            <Link to="/laptop" style={{ textDecoration: "none" }}>
+            <Link to="/mobile" style={{ textDecoration: "none" }}>
               <h3 className="discover-more-title">Discover more</h3>
             </Link>
           </Item>
@@ -94,4 +95,4 @@ const Laptop = () => {
   );
 };
 
-export default Laptop;
+export default Mobiles;

@@ -81,8 +81,14 @@ div.product-image {
     background-color: transparent;
 }
 
+
+.ratings-container {
+    text-align: left !important;
+}
+
 .ratings-container span {
     font-size: 0.9rem;
+
 }
 
 .product-price {
