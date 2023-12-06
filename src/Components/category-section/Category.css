@@ -1,5 +1,4 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400&display=swap');
-
 .category-section {
     text-transform: uppercase;
     font-size: 1.5rem;
@@ -144,7 +143,6 @@ div.product-image {
         margin: 4rem 7% 2rem;
     }
 }
-
 @media (max-width: 490px) {
     .category-section {
         font-size: 1rem;

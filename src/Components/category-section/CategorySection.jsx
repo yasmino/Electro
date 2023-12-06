@@ -1,8 +1,8 @@
 import Tablet from "../Tablet/Tablet";
 import SmartWatches from "../smart-watches/SmartWatches";
 import Laptop from "../Laptop/Laptop";
-import Mobiles from "../Mobile/Mobiles";
 import Container from "@mui/material/Container";
+import Mobiles from "../Mobile/Mobiles";
 
 const CategorySection = () => {
   return (
