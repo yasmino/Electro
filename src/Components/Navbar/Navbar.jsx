@@ -15,7 +15,7 @@ import FavoriteIcon from "@mui/icons-material/Favorite";
 import ShoppingCartIcon from "@mui/icons-material/ShoppingCart";
 import RegistrationForm from "../registration/registrationform";
 
-const Navbar = () => {
+const Navbar = ({ cartItems }) => {
   return (
     <>
       <AppBar position="static" sx={{ backgroundColor: "white" }}>
@@ -80,20 +80,20 @@ const Navbar = () => {
                     <Link to="/cart">
                       <ShoppingCartIcon sx={{ color: "black" }} />
                     </Link>
-                    <span className="cart-count">0</span>
+                    <span className="cart-count">{cartItems.length}</span>
                   </Button>
 
                   {/* login */}
                   <Button className="nav-btn registericon">
-                  <RegistrationForm />
-                </Button>
+                    <RegistrationForm />
+                  </Button>
 
                   {/* wishList */}
                   <Button className="nav-btn wishlisticon">
-                  <Link to="/wishList">
-                    <FavoriteIcon sx={{ color: "black" }} />
-                  </Link>
-                </Button>
+                    <Link to="/wishList">
+                      <FavoriteIcon sx={{ color: "black" }} />
+                    </Link>
+                  </Button>
                 </Box>
               </Grid>
             </Grid>
