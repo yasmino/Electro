@@ -23,13 +23,18 @@ function App() {
       <Routes>
         <Route path="/" element={<Navbar cartItems={cartItems} />}>
           <Route element={<CategoryBar />}>
-            <Route index element={<Home />} />
+            <Route
+              index
+              element={
+                <Home cartItems={cartItems} setCartItems={setCartItems} />
+              }
+            />
             <Route path="mobile" element={<Mobile />} />
             <Route path="laptop" element={<Laptop />} />
             <Route path="smartphone" element={<Smartwatch />} />
             <Route path="tablets" element={<Tablets />} />
             <Route path="login" element={<Login />} />
-            <Route path="cart" element={<Cart />} />
+            <Route path="cart" element={<Cart cartItems={cartItems} />} />
             <Route path="wishList" element={<WishList />} />
           </Route>
         </Route>
