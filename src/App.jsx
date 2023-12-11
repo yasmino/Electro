@@ -20,31 +20,34 @@ function App() {
 
   // addToCart Function
   const addToCartHandler = (product) => {
+    let updatedItem;
     const exsitingProduct = cartItems.find((item) => item.id === product.id);
     if (exsitingProduct) {
-      const updatedItem = cartItems.map((item) =>
+      updatedItem = cartItems.map((item) =>
         item.id === product.id ? { ...item, quantity: item.quantity + 1 } : item
       );
-      setCartItems(updatedItem);
     } else {
-      setCartItems([...cartItems, { ...product, quantity: 1 }]);
+      updatedItem = [...cartItems, { ...product, quantity: 1 }];
     }
+    setCartItems(updatedItem);
+    // update added item in Local storage
+    localStorage.setItem("cartItems", JSON.stringify(updatedItem));
   };
 
   // removeFromCartIcon Function
   const removeFromCartIcon = (product) => {
+    let removedItem;
     const exsitingItem = cartItems.find((item) => item.id === product.id);
     if (exsitingItem.quantity === 1) {
-      setCartItems(cartItems.filter((item) => item.id !== product.id));
+      removedItem = cartItems.filter((item) => item.id !== product.id);
     } else {
-      setCartItems(
-        cartItems.map((item) =>
-          item.id === product.id
-            ? { ...item, quantity: item.quantity - 1 }
-            : item
-        )
+      removedItem = cartItems.map((item) =>
+        item.id === product.id ? { ...item, quantity: item.quantity - 1 } : item
       );
     }
+    setCartItems(removedItem);
+    // update removed item in Local storage
+    localStorage.setItem("cartItems", JSON.stringify(removedItem));
   };
 
   return (

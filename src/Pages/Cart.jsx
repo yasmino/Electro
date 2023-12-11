@@ -2,13 +2,14 @@ import { useContext } from "react";
 import { CartContext } from "../Components/Context/CartContext";
 
 const Cart = () => {
-  const { cartItems, removeFromCartIcon } = useContext(CartContext);
-
+  const { removeFromCartIcon, addToCartHandler } = useContext(CartContext);
+  // get items from local storage
+  const items = JSON.parse(localStorage.getItem("cartItems")) || [];
   return (
     <>
-      {cartItems.length === 0 && <h1>No Founded Items</h1>}
+      {items.length === 0 && <h1>No Founded Items</h1>}
       <div>
-        {cartItems.map((item, index) => {
+        {items.map((item, index) => {
           return (
             <div key={index}>
               <h2>{item.name}</h2>
@@ -21,6 +22,14 @@ const Cart = () => {
               >
                 remove
               </button>
+              <button
+                onClick={() => {
+                  addToCartHandler(item);
+                }}
+              >
+                Add
+              </button>
+
               <img src={item.image} alt="" />
             </div>
           );
