@@ -10,25 +10,10 @@ import { CartContext } from "../Context/CartContext";
 
 // eslint-disable-next-line react/prop-types
 const MobileList = ({ data }) => {
-  const items = useContext(CartContext);
-  const cartItems = items.cartItems;
-  const setCartItems = items.setCartItems;
+  const { addToCartHandler } = useContext(CartContext);
 
   // eslint-disable-next-line react/prop-types
   const { name, image, price } = data;
-
-  // addToCart Function
-  const addToCartHandler = (product) => {
-    const exsitingProduct = cartItems.find((item) => item.id === product.id);
-    if (exsitingProduct) {
-      const updatedItem = cartItems.map((item) =>
-        item.id === product.id ? { ...item, quantity: item.quantity + 1 } : item
-      );
-      setCartItems(updatedItem);
-    } else {
-      setCartItems([...cartItems, { ...product, quantity: 1 }]);
-    }
-  };
 
   // start design
   function Item(props) {
