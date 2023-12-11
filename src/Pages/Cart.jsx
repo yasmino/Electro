@@ -1,22 +1,25 @@
-const Cart = ({ cartItems }) => {
+import { useContext } from "react";
+import { CartContext } from "../Components/Context/CartContext";
+
+const Cart = () => {
+  const { cartItems } = useContext(CartContext);
+
   return (
-    <div>
-      <h2>Cart Page</h2>
-      <div>{cartItems.length === 0 && <h2>No Founded Items</h2>}</div>
+    <>
+      {cartItems.length === 0 && <h1>No Founded Items</h1>}
       <div>
         {cartItems.map((item, index) => {
-          const { name, image, price, quantity } = item;
           return (
             <div key={index}>
-              <h2>{name}</h2>
-              <img src={image} alt="" />
-              <h3>{price}</h3>
-              <h3>{quantity}</h3>
+              <h2>{item.name}</h2>
+              <h3>{item.price}</h3>
+              <p>{item.quantity}</p>
+              <img src={item.image} alt="" />
             </div>
           );
         })}
       </div>
-    </div>
+    </>
   );
 };
 

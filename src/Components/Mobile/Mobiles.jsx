@@ -1,5 +1,5 @@
 import "../category-section/Category.css";
-import { useState, useEffect } from "react";
+import { useEffect, useState } from "react";
 import Box from "@mui/material/Box";
 import { Link } from "react-router-dom";
 import Grid from "@mui/material/Grid";
@@ -9,6 +9,8 @@ import ArrowForwardOutlinedIcon from "@mui/icons-material/ArrowForwardOutlined";
 import PropTypes from "prop-types";
 
 const Mobiles = () => {
+  const [mobileData, setMobileData] = useState([]);
+
   function Item(props) {
     const { sx, ...other } = props;
     return (
@@ -45,15 +47,14 @@ const Mobiles = () => {
     ]),
   };
 
-  const [mobileData, setMobileDate] = useState([]);
-
   const Electronics = data.Electronics;
 
+  // fetching data
   const fetchMobileData = () => {
     const mobiles = Electronics.filter(
       (electronic) => electronic.type === "Mobile"
     );
-    setMobileDate(mobiles);
+    setMobileData(mobiles);
   };
 
   useEffect(() => {
@@ -73,10 +74,7 @@ const Mobiles = () => {
       </div>
       <Grid container spacing={2} className="product-section">
         {mobileData.slice(0, 4).map((data, index) => {
-          const { name, image, price } = data;
-          return (
-            <MobileList key={index} name={name} image={image} price={price} />
-          );
+          return <MobileList key={index} data={data} />;
         })}
 
         <Box className="discover-more">

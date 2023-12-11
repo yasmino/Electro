@@ -15,7 +15,7 @@ import FavoriteIcon from "@mui/icons-material/Favorite";
 import ShoppingCartIcon from "@mui/icons-material/ShoppingCart";
 import RegistrationForm from "../registration/registrationform";
 
-const Navbar = ({ cartItems }) => {
+const Navbar = () => {
   return (
     <>
       <AppBar position="static" sx={{ backgroundColor: "white" }}>
@@ -80,7 +80,7 @@ const Navbar = ({ cartItems }) => {
                     <Link to="/cart">
                       <ShoppingCartIcon sx={{ color: "black" }} />
                     </Link>
-                    <span className="cart-count">{cartItems.length}</span>
+                    <span className="cart-count">0</span>
                   </Button>
 
                   {/* login */}

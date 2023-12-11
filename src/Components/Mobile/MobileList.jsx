@@ -1,13 +1,36 @@
 import AddShoppingCartOutlinedIcon from "@mui/icons-material/AddShoppingCartOutlined";
 import FavoriteBorderOutlinedIcon from "@mui/icons-material/FavoriteBorderOutlined";
 import Rating from "@mui/material/Rating";
-import { Link } from "react-router-dom";
 import Box from "@mui/material/Box";
 import Grid from "@mui/material/Grid";
 import PropTypes from "prop-types";
 import "../category-section/Category.css";
+import { useContext } from "react";
+import { CartContext } from "../Context/CartContext";
 
-const MobileList = ({ name, image, price }) => {
+// eslint-disable-next-line react/prop-types
+const MobileList = ({ data }) => {
+  const items = useContext(CartContext);
+  const cartItems = items.cartItems;
+  const setCartItems = items.setCartItems;
+
+  // eslint-disable-next-line react/prop-types
+  const { name, image, price } = data;
+
+  // addToCart Function
+  const addToCartHandler = (product) => {
+    const exsitingProduct = cartItems.find((item) => item.id === product.id);
+    if (exsitingProduct) {
+      const updatedItem = cartItems.map((item) =>
+        item.id === product.id ? { ...item, quantity: item.quantity + 1 } : item
+      );
+      setCartItems(updatedItem);
+    } else {
+      setCartItems([...cartItems, { ...product, quantity: 1 }]);
+    }
+  };
+
+  // start design
   function Item(props) {
     const { sx, ...other } = props;
     return (
@@ -43,7 +66,7 @@ const MobileList = ({ name, image, price }) => {
       PropTypes.object,
     ]),
   };
-
+  // end design
   return (
     <Grid item xs={6} md={3} spacing={3}>
       <Item className="product-image">
@@ -52,15 +75,19 @@ const MobileList = ({ name, image, price }) => {
         </div>
         <img src={image} />
       </Item>
+
       <Item className="product">
         <Box className="product-details">
           <Item sx={{ flexGrow: 1 }}>
             <h3 className="product-title">{name}</h3>
           </Item>
+
           <Item className="cart-icon">
-            <Link to="/cart">
-              <AddShoppingCartOutlinedIcon />
-            </Link>
+            <AddShoppingCartOutlinedIcon
+              onClick={() => {
+                addToCartHandler(data);
+              }}
+            />
           </Item>
         </Box>
         <div className="ratings-container">

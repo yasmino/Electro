@@ -7,6 +7,7 @@ import Grid from "@mui/material/Grid";
 import PropTypes from "prop-types";
 import "../category-section/Category.css";
 
+// eslint-disable-next-line react/prop-types
 const TabletList = ({ name, image, price }) => {
   function Item(props) {
     const { sx, ...other } = props;
