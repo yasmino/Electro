@@ -17,6 +17,7 @@ import { useState } from "react";
 
 function App() {
   const [cartItems, setCartItems] = useState([]);
+
   // addToCart Function
   const addToCartHandler = (product) => {
     const exsitingProduct = cartItems.find((item) => item.id === product.id);

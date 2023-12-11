@@ -10,12 +10,14 @@ import {
   TextField,
   Grid,
 } from "@mui/material";
-
+import { useContext } from "react";
 import FavoriteIcon from "@mui/icons-material/Favorite";
 import ShoppingCartIcon from "@mui/icons-material/ShoppingCart";
 import RegistrationForm from "../registration/registrationform";
+import { CartContext } from "../Context/CartContext";
 
 const Navbar = () => {
+  const { cartItems } = useContext(CartContext);
   return (
     <>
       <AppBar position="static" sx={{ backgroundColor: "white" }}>
@@ -80,7 +82,7 @@ const Navbar = () => {
                     <Link to="/cart">
                       <ShoppingCartIcon sx={{ color: "black" }} />
                     </Link>
-                    <span className="cart-count">0</span>
+                    <span className="cart-count">{cartItems.length}</span>
                   </Button>
 
                   {/* login */}
