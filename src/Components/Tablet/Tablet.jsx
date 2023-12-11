@@ -1,24 +1,21 @@
 import "../category-section/Category.css";
 import TabletList from "./TabletList";
-import { useState, useEffect } from "react";
+import { useEffect, useContext  } from "react";
+import { WishlistContext } from "../../WishlistContext/WishlistProvider";
 import Box from "@mui/material/Box";
 import { Link } from "react-router-dom";
 import Grid from "@mui/material/Grid";
-import data from "../../../Data/db.json";
 import ArrowForwardOutlinedIcon from "@mui/icons-material/ArrowForwardOutlined";
-import { useContext } from "react";
-import { CartContext } from "../Context/CartContext";
 
 const Tablet = () => {
-  const { Item } = useContext(CartContext);
-  const [tabletData, setTabletDate] = useState([]);
-  const Electronics = data.Electronics;
+  const {Electronics, setTabletData, tabletData, setElectronics, Item} = useContext(WishlistContext);
 
   const fetchTabletData = () => {
     const tablets = Electronics.filter(
       (electronic) => electronic.type === "Tablet"
     );
-    setTabletDate(tablets);
+    setTabletData(tablets);
+    setElectronics(Electronics)
   };
 
   useEffect(() => {

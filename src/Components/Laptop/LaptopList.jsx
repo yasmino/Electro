@@ -5,19 +5,26 @@ import Box from "@mui/material/Box";
 import Grid from "@mui/material/Grid";
 import { useContext } from "react";
 import { CartContext } from "../Context/CartContext";
+import { WishlistContext } from "../../WishlistContext/WishlistProvider";
 
 // eslint-disable-next-line react/prop-types
 const LaptopList = ({ data }) => {
-  const { addToCartHandler, Item } = useContext(CartContext);
-
-  // eslint-disable-next-line react/prop-types
-  const { name, image, price } = data;
+  const { addToCartHandler} = useContext(CartContext);
+  const {handleFavorite, Item} = useContext(WishlistContext);
+// eslint-disable-next-line react/prop-types
+  const { id, name, image, price } = data;
 
   return (
     <Grid item xs={6} md={3} spacing={3}>
       <Item className="product-image">
         <div className="wishlist">
-          <FavoriteBorderOutlinedIcon />
+        <button
+                  onClick={() => {
+                    handleFavorite(id);
+                  }}
+                >
+            <FavoriteBorderOutlinedIcon />
+            </button>
         </div>
         <img src={image} />
       </Item>
