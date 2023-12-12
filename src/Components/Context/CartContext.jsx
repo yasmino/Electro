@@ -2,13 +2,11 @@ import { createContext } from "react";
 import { useState } from "react";
 import PropTypes from "prop-types";
 import Box from "@mui/material/Box";
-
 export const CartContext = createContext({});
 
 // eslint-disable-next-line react/prop-types
 const CartContextProvider = ({ children }) => {
   const [cartItems, setCartItems] = useState([]);
-  // const [clearCart, setClearCart] = useState(false);
 
   // addToCart Function
   const addToCartHandler = (product) => {
