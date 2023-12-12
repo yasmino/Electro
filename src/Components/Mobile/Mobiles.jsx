@@ -1,59 +1,26 @@
 import "../category-section/Category.css";
-import { useState, useEffect } from "react";
+import { useEffect, useState } from "react";
 import Box from "@mui/material/Box";
 import { Link } from "react-router-dom";
 import Grid from "@mui/material/Grid";
 import data from "../../../Data/db.json";
 import MobileList from "./MobileList";
 import ArrowForwardOutlinedIcon from "@mui/icons-material/ArrowForwardOutlined";
-import PropTypes from "prop-types";
+import { useContext } from "react";
+import { CartContext } from "../Context/CartContext";
 
 const Mobiles = () => {
-  function Item(props) {
-    const { sx, ...other } = props;
-    return (
-      <Box
-        sx={{
-          p: 1,
-          m: 1,
-          bgcolor: (theme) =>
-            theme.palette.mode === "dark" ? "#101010" : "grey.100",
-          color: (theme) =>
-            theme.palette.mode === "dark" ? "grey.300" : "grey.800",
-          border: "1px solid",
-          borderColor: (theme) =>
-            theme.palette.mode === "dark" ? "grey.800" : "grey.300",
-          borderRadius: 2,
-          fontSize: "0.875rem",
-          fontWeight: "700",
-          ...sx,
-        }}
-        {...other}
-      />
-    );
-  }
-  Item.propTypes = {
-    /**
-     * The system prop that allows defining system overrides as well as additional CSS styles.
-     */
-    sx: PropTypes.oneOfType([
-      PropTypes.arrayOf(
-        PropTypes.oneOfType([PropTypes.func, PropTypes.object, PropTypes.bool])
-      ),
-      PropTypes.func,
-      PropTypes.object,
-    ]),
-  };
-
-  const [mobileData, setMobileDate] = useState([]);
+  const [mobileData, setMobileData] = useState([]);
+  const { Item } = useContext(CartContext);
 
   const Electronics = data.Electronics;
 
+  // fetching data
   const fetchMobileData = () => {
     const mobiles = Electronics.filter(
       (electronic) => electronic.type === "Mobile"
     );
-    setMobileDate(mobiles);
+    setMobileData(mobiles);
   };
 
   useEffect(() => {
@@ -73,10 +40,7 @@ const Mobiles = () => {
       </div>
       <Grid container spacing={2} className="product-section">
         {mobileData.slice(0, 4).map((data, index) => {
-          const { name, image, price } = data;
-          return (
-            <MobileList key={index} name={name} image={image} price={price} />
-          );
+          return <MobileList key={index} data={data} />;
         })}
 
         <Box className="discover-more">
