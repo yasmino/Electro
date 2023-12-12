@@ -13,10 +13,12 @@ import {
 import FavoriteIcon from "@mui/icons-material/Favorite";
 import ShoppingCartIcon from "@mui/icons-material/ShoppingCart";
 import RegistrationForm from "../registration/registrationform";
+import { useContext } from "react";
+import { CartContext } from "../Context/CartContext";
 
 const Navbar = () => {
-  // get items from local storage
-  const items = JSON.parse(localStorage.getItem("cartItems")) || [];
+  const { items } = useContext(CartContext);
+
   return (
     <>
       <AppBar position="static" sx={{ backgroundColor: "white" }}>
