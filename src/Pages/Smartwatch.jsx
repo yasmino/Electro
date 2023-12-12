@@ -34,9 +34,8 @@ const Smartwatch = () => {
       <Container maxWidth="lg" sx={{ height: "100vh" }}>
       <Grid container spacing={2} className="product-section">
         {watchesData.map((data, index) => {
-          const { id, name, image, price } = data;
           return (
-            <SmartWatchesList key={index} name={name} image={image} price={price} id={id} />
+            <SmartWatchesList key={index} data={data}/>
           );
         })}
       </Grid>

@@ -10,7 +10,6 @@ import { WishlistContext } from "../../WishlistContext/WishlistProvider";
 const SmartWatchesList = ({ data }) => {
   const { addToCartHandler} = useContext(CartContext);
   const {handleFavorite, Item} = useContext(WishlistContext);
-  
   // eslint-disable-next-line react/prop-types
   const { id, name, image, price } = data;
 

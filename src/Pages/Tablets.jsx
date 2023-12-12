@@ -34,9 +34,8 @@ const Tablet = () => {
       <Container maxWidth="lg" sx={{ height: "100vh" }}>
       <Grid container spacing={2} className="product-section">
         {tabletData.map((data, index) => {
-          const { id, name, image, price } = data;
           return (
-            <TabletList key={index} name={name} image={image} price={price} id={id} />
+            <TabletList key={index} data={data} />
           );
         })}
       </Grid>

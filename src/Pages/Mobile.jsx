@@ -34,9 +34,8 @@ const Mobile = () => {
       <Container maxWidth="lg" sx={{ height: "100vh" }}>
       <Grid container spacing={2} className="product-section">
         {mobileData.map((data, index) => {
-          const { id, name, image, price } = data;
           return (
-            <LaptopList key={index} name={name} image={image} price={price} id={id} />
+            <LaptopList key={index} data={data} />
           );
         })}
       </Grid>
