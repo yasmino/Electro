@@ -6,14 +6,22 @@ const Cart = () => {
   // get items from local storage
   const items = JSON.parse(localStorage.getItem("cartItems")) || [];
 
+  // const totalPrice = items.reduce(
+  //   (acc, item) => acc + item.price * item.qunatity,
+  //   0
+  // );
+  // console.log(totalPrice);
   return (
     <>
       {items.length === 0 && <h1>No Founded Items</h1>}
-
       <div>
         {items.map((item, index) => {
-          const subTotal = item.quantity * item.price.toFixed(2);
-
+          const subTotal = item.quantity * item.price;
+          const total = items.reduce(
+            (acc, item) => acc + item.quantity * item.price,
+            0
+          );
+          console.log(total);
           return (
             <div key={index}>
               <h2>{item.name}</h2>
@@ -36,6 +44,7 @@ const Cart = () => {
               </button>
 
               <img src={item.image} alt="" />
+              <h3>Total Price: ${total}</h3>
             </div>
           );
         })}
