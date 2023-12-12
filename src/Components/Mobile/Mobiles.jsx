@@ -1,19 +1,14 @@
 import "../category-section/Category.css";
-import { useEffect, useState } from "react";
+import { useEffect, useContext  } from "react";
+import { WishlistContext } from "../../WishlistContext/WishlistProvider";
 import Box from "@mui/material/Box";
 import { Link } from "react-router-dom";
 import Grid from "@mui/material/Grid";
-import data from "../../../Data/db.json";
 import MobileList from "./MobileList";
 import ArrowForwardOutlinedIcon from "@mui/icons-material/ArrowForwardOutlined";
-import { useContext } from "react";
-import { CartContext } from "../Context/CartContext";
 
 const Mobiles = () => {
-  const [mobileData, setMobileData] = useState([]);
-  const { Item } = useContext(CartContext);
-
-  const Electronics = data.Electronics;
+  const {Electronics, mobileData, setMobileData, Item} = useContext(WishlistContext);
 
   // fetching data
   const fetchMobileData = () => {

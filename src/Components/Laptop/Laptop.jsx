@@ -1,24 +1,20 @@
-import { useState, useEffect } from "react";
 import Box from "@mui/material/Box";
+import {useEffect, useContext  } from "react";
+import { WishlistContext } from "../../WishlistContext/WishlistProvider";
 import { Link } from "react-router-dom";
 import Grid from "@mui/material/Grid";
-import data from "../../../Data/db.json";
 import ArrowForwardOutlinedIcon from "@mui/icons-material/ArrowForwardOutlined";
 import LaptopList from "./LaptopList";
 import "../category-section/Category.css";
-import { useContext } from "react";
-import { CartContext } from "../Context/CartContext";
 
 const Laptop = () => {
-  const { Item } = useContext(CartContext);
-  const [laptopData, setLaptopDate] = useState([]);
-  const Electronics = data.Electronics;
+  const {Electronics,laptopData, setLaptopData, Item} = useContext(WishlistContext);
 
   const fetchLaptopData = () => {
     const Laptop = Electronics.filter(
       (electronic) => electronic.type === "Laptop"
     );
-    setLaptopDate(Laptop);
+    setLaptopData(Laptop);
   };
 
   useEffect(() => {
@@ -52,7 +48,7 @@ const Laptop = () => {
           </Item>
         </Box>
       </Grid>
-    </>
+  </>
   );
 };
 

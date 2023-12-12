@@ -1,24 +1,33 @@
 import AddShoppingCartOutlinedIcon from "@mui/icons-material/AddShoppingCartOutlined";
 import FavoriteBorderOutlinedIcon from "@mui/icons-material/FavoriteBorderOutlined";
+import FavoriteIcon from '@mui/icons-material/Favorite';
 import Rating from "@mui/material/Rating";
 import Box from "@mui/material/Box";
 import Grid from "@mui/material/Grid";
 import "../category-section/Category.css";
+import { WishlistContext } from "../../WishlistContext/WishlistProvider";
 import { useContext } from "react";
 import { CartContext } from "../Context/CartContext";
 
 // eslint-disable-next-line react/prop-types
 const TabletList = ({ data }) => {
-  const { addToCartHandler, Item } = useContext(CartContext);
+  const { addToCartHandler } = useContext(CartContext);
+  const {handleFavorite,wishlistIcon, Item} = useContext(WishlistContext);
 
   // eslint-disable-next-line react/prop-types
-  const { name, image, price } = data;
+  const { id, name, image, price } = data;
 
   return (
     <Grid item xs={6} md={3} spacing={3}>
       <Item className="product-image">
         <div className="wishlist">
-          <FavoriteBorderOutlinedIcon />
+        <button
+                  onClick={() => {
+                    handleFavorite(id);
+                  }}
+                >
+            {wishlistIcon ? <FavoriteIcon/> : <FavoriteBorderOutlinedIcon />}
+            </button>
         </div>
         <img src={image} />
       </Item>

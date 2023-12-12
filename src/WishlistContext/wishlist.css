@@ -1,0 +1,31 @@
+.thumbnail {
+    width: 100%;
+    padding: 8px;
+    height: 7em;
+    object-fit: contain;
+}
+
+.fav-product-image {
+    position: relative;
+    width: 8rem;
+    margin: 0;
+}
+
+@media (max-width: 680px) {
+    thead.wishlist-thead {
+        display: none;
+    }
+    tr.product-row {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        padding: 3rem 0;
+    }
+    .container {
+        max-width: 100%;
+    }
+    .wishlist-table {
+        min-width: 100%;
+    }
+}
