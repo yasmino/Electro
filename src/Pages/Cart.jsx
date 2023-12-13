@@ -11,7 +11,7 @@ const Cart = () => {
       <div>
         {items.map((item, index) => {
           // get subTotal
-          const subTotal = item.quantity * item.price;
+          const subTotal = (item.quantity * item.price).toFixed(2);
           return (
             <div key={index}>
               <h2>{item.name}</h2>
@@ -37,7 +37,9 @@ const Cart = () => {
             </div>
           );
         })}
-        <h3>{items.length === 0 ? "" : <p>Total Price : {total}</p>}</h3>
+        <h3>
+          {items.length === 0 ? "" : <p>Total Price : {total.toFixed(2)}</p>}
+        </h3>
 
         {items.length === 0 ? (
           ""
