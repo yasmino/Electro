@@ -48,12 +48,12 @@ const Navbar = () => {
               </Grid>
 
               {/* search */}
-              <Grid item xs={4} md={4}>
+              <Grid item xs={6} md={4}>
                 <SearchBar />
               </Grid>
 
               {/* pages */}
-              <Grid item xs={5} md={4}>
+              <Grid item xs={3} md={4}>
                 <Box
                   className="nav-icons"
                   sx={{

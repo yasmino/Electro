@@ -7,9 +7,6 @@ const SearchBar = () => {
       id="country-select-demo"
       sx={{
         width: "300px",
-        display: "flex",
-        alignItems: "center",
-        justifyContent: "cneter",
       }}
       options={Electronics}
       autoHighlight
@@ -23,7 +20,7 @@ const SearchBar = () => {
             display: "grid",
             gridTemplateColumns: "auto auto auto",
             gridGap: "30px",
-            "& > img": { mr: 8, my: 3, flexShrink: 0 },
+            "& > img": { mr: 8, flexShrink: 0 },
           }}
           {...props}
         >
@@ -45,10 +42,13 @@ const SearchBar = () => {
       renderInput={(params) => (
         <TextField
           {...params}
-          label="Search For Products"
+          label="search"
           inputProps={{
             ...params.inputProps,
             autoComplete: "new-password",
+            style: {
+              padding: "1px",
+            },
           }}
         />
       )}
