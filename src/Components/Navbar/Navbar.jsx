@@ -7,7 +7,6 @@ import {
   Typography,
   Container,
   Button,
-  TextField,
   Grid,
 } from "@mui/material";
 import FavoriteIcon from "@mui/icons-material/Favorite";
@@ -15,11 +14,12 @@ import ShoppingCartIcon from "@mui/icons-material/ShoppingCart";
 import RegistrationForm from "../registration/registrationform";
 import { useContext } from "react";
 import { CartContext } from "../Context/CartContext";
-import { WishlistContext } from "../../WishlistContext/WishlistProvider"
+import { WishlistContext } from "../../WishlistContext/WishlistProvider";
+import SearchBar from "../SearchBar/SearchBar";
 
 const Navbar = () => {
   const { items } = useContext(CartContext);
-  const {wishlistcount} = useContext(WishlistContext);
+  const { wishlistcount } = useContext(WishlistContext);
 
   return (
     <>
@@ -49,23 +49,7 @@ const Navbar = () => {
 
               {/* search */}
               <Grid item xs={6} md={4}>
-                <Box
-                  sx={{
-                    display: "flex",
-                    flexDirection: "column",
-                    justifyContent: "center",
-                    alignItems: "center",
-                    height: "70px",
-                  }}
-                >
-                  <TextField
-                    id="outlined-search"
-                    label="Search "
-                    type="search"
-                    className="searchBox"
-                    sx={{ width: "350px" }}
-                  />
-                </Box>
+                <SearchBar />
               </Grid>
 
               {/* pages */}
@@ -95,11 +79,11 @@ const Navbar = () => {
 
                   {/* wishList */}
                   <Button className="nav-btn wishlisticon">
-                  <Link to="/wishList">
-                    <FavoriteIcon sx={{ color: "black" }} />
-                    <span className="cart-count">{wishlistcount}</span>
-                  </Link>
-                </Button>
+                    <Link to="/wishList">
+                      <FavoriteIcon sx={{ color: "black" }} />
+                      <span className="cart-count">{wishlistcount}</span>
+                    </Link>
+                  </Button>
                 </Box>
               </Grid>
             </Grid>
