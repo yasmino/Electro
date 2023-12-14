@@ -79,10 +79,20 @@ div.searchBox fieldset .css-14lo706 {
     text-align: center;
 }
 
+.Search-Grid {
+    margin-top: 1rem !important;
+}
+
+#country-select-demo-listbox {
+    padding: 0;
+    max-height: 75vh;
+}
+
+#country-select-demo-listbox>li {
+    font-size: 0.8rem;
+}
+
 @media(max-width:900px) {
-    div.searchBox {
-        width: 10rem;
-    }
     h4.electroLogo {
         margin: 17px 0;
         font-size: 1.1rem;
