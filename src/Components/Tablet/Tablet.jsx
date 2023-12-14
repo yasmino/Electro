@@ -8,14 +8,13 @@ import Grid from "@mui/material/Grid";
 import ArrowForwardOutlinedIcon from "@mui/icons-material/ArrowForwardOutlined";
 
 const Tablet = () => {
-  const {Electronics, setTabletData, tabletData, setElectronics, Item} = useContext(WishlistContext);
+  const {Electronics, setTabletData, tabletData, Item} = useContext(WishlistContext);
 
   const fetchTabletData = () => {
     const tablets = Electronics.filter(
       (electronic) => electronic.type === "Tablet"
     );
     setTabletData(tablets);
-    setElectronics(Electronics)
   };
 
   useEffect(() => {

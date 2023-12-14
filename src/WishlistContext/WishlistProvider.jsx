@@ -2,9 +2,10 @@ import { createContext, useState } from "react";
 import PropTypes from 'prop-types';
 import Box from '@mui/material/Box';
 import data from "../../Data/db.json"
-
 export const WishlistContext = createContext({});
 
+
+// eslint-disable-next-line react/prop-types
 const WishlistProvider = ({ children }) => {
 
     const Electronics = data.Electronics;
@@ -12,26 +13,28 @@ const WishlistProvider = ({ children }) => {
     const [tabletData, setTabletData] = useState([]);
     const [laptopData, setLaptopData] = useState([]);
     const [watchesData, setWatchesData] = useState([]);
-    const [electronics, setElectronics] = useState([]);
+    const [favoriteItems, setFavoriteItems] = useState([]);
     const [wishlistcount, setWishlistCount] = useState(0);
     const [wishlistIcon, setWishlistIcon] = useState(false);
    
+    const handleFavorite = (product) => {
+      let favorites;
+      const wishlistProducts = favoriteItems.find((item) => item.id === product.id);
+      if (wishlistProducts) {
+        favorites = favoriteItems.map((item) =>
+          item.id === product.id ? { ...item, wishlist: !item.wishlist } : item
+        );
+        setWishlistCount(wishlistcount - 1);
+      } else {
+        favorites = [...favoriteItems, { ...product, wishlist: true}];
+        setWishlistCount(wishlistcount + 1);
+      }
+      setFavoriteItems(favorites);
+      localStorage.setItem("favoriteItems", JSON.stringify(favorites));
+    };
 
-    const handleFavorite = (id) => {
-      const wishlistProducts = electronics.map(item => {
-        return item.id === id ? { ...item, wishlist: !item.wishlist}: item;
-      });
-      setWishlistCount(wishlistcount + 1);
-      setElectronics(wishlistProducts);
-      setWishlistIcon((prev) => !prev);
-    }
+    const favs = JSON.parse(localStorage.getItem("favoriteItems")) || [];
 
-    const handleRemove = (id) => {
-      const notWishlistProduct = electronics.filter((item) => item.id !== id);
-      setElectronics(notWishlistProduct);
-      setWishlistCount(wishlistcount - 1);
-    }
- 
     function Item(props) {
       const { sx, ...other } = props;
       return (
@@ -66,17 +69,18 @@ const WishlistProvider = ({ children }) => {
       ]),
     };
   
+
   return (
     <WishlistContext.Provider value={{
-      Electronics, 
+      Electronics, favs ,
+      // handleRemove,
       mobileData, setMobileData,
       tabletData, setTabletData,
       laptopData, setLaptopData,
       watchesData, setWatchesData,
-      electronics, setElectronics,
+     handleFavorite, favoriteItems, setFavoriteItems,
       wishlistcount, setWishlistCount,
       wishlistIcon, setWishlistIcon,
-      handleFavorite, handleRemove,
       Item
      }}>
       {children}
