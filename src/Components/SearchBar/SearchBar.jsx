@@ -43,7 +43,6 @@ const SearchBar = () => {
         label="search "
         type="search"
         className="searchBox"
-        sx={{ width: "350px" }}
           {...params}
           inputProps={{
             ...params.inputProps,
