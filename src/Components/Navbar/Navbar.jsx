@@ -48,7 +48,7 @@ const Navbar = () => {
               </Grid>
 
               {/* search */}
-              <Grid item xs={6} md={4} mt={1}>
+              <Grid item xs={6} md={4} mt={1} className="Search-Grid">
                 <SearchBar />
               </Grid>
 
