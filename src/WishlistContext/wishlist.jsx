@@ -1,4 +1,4 @@
-import { useContext, useEffect} from "react";
+import { useContext} from "react";
 import { WishlistContext } from './WishlistProvider';
 import Container from "@mui/material/Container";
 import Table from '@mui/material/Table';
@@ -8,11 +8,14 @@ import TableContainer from '@mui/material/TableContainer';
 import TableHead from '@mui/material/TableHead';
 import TableRow from '@mui/material/TableRow';
 import DeleteIcon from '@mui/icons-material/Delete';
+import AddShoppingCartOutlinedIcon from "@mui/icons-material/AddShoppingCartOutlined";
+
+import { CartContext } from "../Components/Context/CartContext"
 import './wishlist.css'
 
 const Wishlist = () => {
-    const {handleRemove, electronics} = useContext(WishlistContext);
-
+    const {handleRemove,handleFavorite, favoriteItems} = useContext(WishlistContext);
+    const { addToCartHandler} = useContext(CartContext);
   return (
 <Container maxWidth="lg" sx={{height: '100vh' }}>
   <TableContainer>
@@ -26,9 +29,9 @@ const Wishlist = () => {
           </TableRow>
         </TableHead>
         <TableBody>
-        {electronics.map(product =>
+        {favoriteItems.map(product =>
                  product.wishlist === true ? 
-            <TableRow key={product.id} className="product-row"
+          <TableRow key={product.id} className="product-row"
               sx={{ '&:last-child td, &:last-child th': { border: 0 } }}
              >
               <TableCell component="th" scope="row" className="fav-product-image">
@@ -41,15 +44,26 @@ const Wishlist = () => {
              {product.price}
               </TableCell>
               <TableCell component="th" scope="row">
-             <button className="remove-btn" onClick={() => {
+             {/* <button className="remove-btn" onClick={() => {
                 handleRemove(product.id);
-              }}>
-                <DeleteIcon/>
-                </button>
+              }}> */}
+              {/* </button> */}
+               <AddShoppingCartOutlinedIcon
+                onClick={() => {
+                addToCartHandler(product);
+              }}
+
+              />
+                <DeleteIcon onClick={() => {
+                 handleFavorite(product)
+              }}/>
               </TableCell>
             </TableRow>
-                  : null
-                  )}
+             : null
+                )}
+            
+                 
+      
         </TableBody>
       </Table>
     </TableContainer>

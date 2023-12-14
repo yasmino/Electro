@@ -11,19 +11,15 @@ const SmartWatchesList = ({ data }) => {
   const { addToCartHandler} = useContext(CartContext);
   const {handleFavorite, Item} = useContext(WishlistContext);
   // eslint-disable-next-line react/prop-types
-  const { id, name, image, price } = data;
+  const { name, image, price } = data;
 
   return (
     <Grid item xs={6} md={3} spacing={3}>
       <Item className="product-image">
         <div className="wishlist">
-        <button
-                  onClick={() => {
-                    handleFavorite(id);
-                  }}
-                >
-            <FavoriteBorderOutlinedIcon />
-            </button>
+        <FavoriteBorderOutlinedIcon  onClick={() => {
+                    handleFavorite(data)
+         }}/>
         </div>
         <img src={image} />
       </Item>

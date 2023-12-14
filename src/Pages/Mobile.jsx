@@ -1,5 +1,5 @@
 import "../Components/category-section/Category.css"
-import LaptopList from "../Components/Laptop/LaptopList"
+import MobileList from "../Components/Mobile/MobileList";
 import { useContext, useEffect } from "react";
 import { WishlistContext } from "../WishlistContext/WishlistProvider";
 import Grid from "@mui/material/Grid";
@@ -35,7 +35,7 @@ const Mobile = () => {
       <Grid container spacing={2} className="product-section">
         {mobileData.map((data, index) => {
           return (
-            <LaptopList key={index} data={data} />
+            <MobileList key={index} data={data} />
           );
         })}
       </Grid>
