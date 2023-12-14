@@ -3,11 +3,8 @@ import Autocomplete from "@mui/material/Autocomplete";
 
 const SearchBar = () => {
   return (
-    <Autocomplete
+  <Autocomplete
       id="country-select-demo"
-      sx={{
-        width: "300px",
-      }}
       options={Electronics}
       autoHighlight
       getOptionLabel={(option) => option.name}
@@ -15,13 +12,14 @@ const SearchBar = () => {
         <Box
           component="li"
           sx={{
-            height: "40px",
+            height: "4rem",
             borderBottom: "1px solid lightGray",
             display: "grid",
             gridTemplateColumns: "auto auto auto",
             gridGap: "30px",
             "& > img": { mr: 8, flexShrink: 0 },
           }}
+      
           {...props}
         >
           {/* first*/}
@@ -41,14 +39,15 @@ const SearchBar = () => {
       )}
       renderInput={(params) => (
         <TextField
+        id="outlined-search"
+        label="search "
+        type="search"
+        className="searchBox"
+        sx={{ width: "350px" }}
           {...params}
-          label="search"
           inputProps={{
             ...params.inputProps,
             autoComplete: "new-password",
-            style: {
-              padding: "1px",
-            },
           }}
         />
       )}
